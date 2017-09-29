@@ -2,6 +2,7 @@ package com.project.is3261.is3261_firebase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import layout.LessonFragment;
 import layout.NewsFragment;
@@ -41,6 +43,9 @@ public class HomeActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener authListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +76,36 @@ public class HomeActivity extends AppCompatActivity {
 
         Toast.makeText(this,"email "+getIntent().getStringExtra("email"),Toast.LENGTH_SHORT).show();
         Toast.makeText(this,"uid "+getIntent().getStringExtra("uid"),Toast.LENGTH_SHORT).show();
+
+        mAuth = FirebaseAuth.getInstance();
+        // this listener will be called when there is change in firebase user session
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                    finish();
+                }
+            }
+        };
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authListener != null) {
+            mAuth.removeAuthStateListener(authListener);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,9 +128,6 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }else if (id == R.id.action_signOut) {
             FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(this, MainActivity.class);
-            this.startActivity(intent);
-            finish();
             return true;
         }
 

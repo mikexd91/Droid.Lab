@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         mEmailView.setError(null);
         mPasswordView.setError(null);
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
         boolean cancel = false;
         View focusView = null;
         // Check for a valid password, if the user entered one.
