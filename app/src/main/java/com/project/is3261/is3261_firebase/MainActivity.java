@@ -7,6 +7,7 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -39,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static com.project.is3261.is3261_firebase.SignUpActivity.MY_SHAREDPREF_NAME1;
 
 /**
  * A login screen that offers login via email/password.
@@ -208,6 +210,11 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                 Toast.makeText(MainActivity.this, R.string.auth_failed,
                                         Toast.LENGTH_SHORT).show();
                             }else{
+                                SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
+                                editor.putString("email",email);
+                                editor.putString("password",password);
+                                editor.commit();
+
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 if (user != null) {
                                     // Name, email address, and profile photo Url
