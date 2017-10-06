@@ -233,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                     i.putExtra("photoUrl", photoUrl);
                                     i.putExtra("uid", uid);
                                     startActivity(i);
+                                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                                     mProgressView.setVisibility(View.GONE);
                                 }
 
