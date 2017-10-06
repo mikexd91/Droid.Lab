@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.is3261.is3261_firebase.HomeActivity;
 import com.project.is3261.is3261_firebase.Model.CustomAdapter;
 import com.project.is3261.is3261_firebase.Model.CustomRVItemTouchListener;
 import com.project.is3261.is3261_firebase.Model.Data;
@@ -83,6 +84,7 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
+        ((HomeActivity) getActivity()).setActionBarTitle("Tech News");
         rootView.setTag(TAG);
 
         mProgressBar = rootView.findViewById(progress_bar);
@@ -252,7 +254,5 @@ public class NewsFragment extends Fragment {
         new DownloadTask().execute(url);
 
     }
-
-
 
 }
