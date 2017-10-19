@@ -16,6 +16,8 @@ import android.widget.ProgressBar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.is3261.is3261_firebase.ChaptersActivity;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.project.is3261.is3261_firebase.HomeActivity;
 import com.project.is3261.is3261_firebase.Model.CustomAdapter;
 import com.project.is3261.is3261_firebase.Model.CustomRVItemTouchListener;
@@ -28,7 +30,6 @@ import java.util.List;
 
 import static com.project.is3261.is3261_firebase.R.id.progress_bar;
 import static com.project.is3261.is3261_firebase.R.id.recyclerView;
-import static com.project.is3261.is3261_firebase.R.id.swipeContainerLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +39,9 @@ public class LessonFragment extends Fragment {
     private FirebaseDatabase mDatabase;
     private DatabaseReference myRef;
     private DatabaseReference news1;
+    private FirebaseStorage storage;
 
+    private StorageReference storageRef;
 
     private static final String TAG = "RecyclerViewFragment";
     protected ProgressBar mProgressBar;
@@ -50,14 +53,40 @@ public class LessonFragment extends Fragment {
 
     public List<Data> fill_with_data() {
 
+        // Create a storage reference from our app
+        storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
         List<Data> data = new ArrayList<>();
 
-        data.add(new Data("Batman vs Superman", "Following the destruction of Metropolis, Batman embarks on a personal vendetta against Superman ", R.drawable.ic_menu_gallery));
-        data.add(new Data("X-Men: Apocalypse", "X-Men: Apocalypse is an upcoming American superhero film based on the X-Men characters that appear in Marvel Comics ", R.drawable.ic_menu_gallery));
-        data.add(new Data("Captain America: Civil War", "A feud between Captain America and Iron Man leaves the Avengers in turmoil.  ", R.drawable.ic_menu_gallery));
-        data.add(new Data("Kung Fu Panda 3", "After reuniting with his long-lost father, Po  must train a village of pandas", R.drawable.ic_menu_gallery));
-        data.add(new Data("Warcraft", "Fleeing their dying home to colonize another, fearsome orc warriors invade the peaceful realm of Azeroth. ", R.drawable.ic_menu_gallery));
-        data.add(new Data("Alice in Wonderland", "Alice in Wonderland: Through the Looking Glass ", R.drawable.ic_menu_gallery));
+        String userInterface = "https://firebasestorage.googleapis.com/v0/b/is3261-50f58.appspot." +
+                "com/o/Lesson%20Menu%2Fuser_interface.jpg?alt=media&token=74b3453e-da87-434e-8119-6c274243a7ec";
+        String userInput = "https://firebasestorage.googleapis.com/v0/b/is3261-50f58.appspot." +
+                "com/o/Lesson%20Menu%2Fuser_input.jpg?alt=media&token=845256ab-bb50-426e-8269-4e5ba5454616";
+        String multipleScreen = "https://firebasestorage.googleapis.com/v0/b/is3261-50f58.appspot.com" +
+                "/o/Lesson%20Menu%2Fmultiple_screen.jpg?alt=media&token=ccc638f2-b896-437b-97fb-84c6deaf1f7e";
+        String dataStorage = "https://firebasestorage.googleapis.com/v0/b/is3261-50f58.appspot.com/o/" +
+                "Lesson%20Menu%2Fdata_storage.jpg?alt=media&token=46654c25-16e5-4805-937a-6893efa2c490";
+        String networking = "https://firebasestorage.googleapis.com/v0/b/is3261-50f58.appspot.com/o/" +
+                "Lesson%20Menu%2Fnetworking.jpg?alt=media&token=7a17e1bb-21b1-4fff-9eab-898763bca5ef";
+        data.add(new Data("User Interface", "By the end of this course, you’ll know how to make " +
+                "a single-screen Android app with text and images. We’ll discuss " +
+                "how to create a user interface through a series of short videos " +
+                "with lots of hands-on practice.", userInterface));
+        data.add(new Data("User Input", "By the end of this course, you’ll know how to make " +
+                "a single-screen Android app with text and images. We’ll discuss " +
+                "how to create a user interface through a series of short videos " +
+                "with lots of hands-on practice.", userInput));
+        data.add(new Data("Multiple Screen", "By the end of this course, you’ll know how to make " +
+                "a single-screen Android app with text and images. We’ll discuss " +
+                "how to create a user interface through a series of short videos " +
+                "with lots of hands-on practice.", multipleScreen));
+        data.add(new Data("Data Storage", "In this course, you'll learn the basics of data " +
+                "storage in Andriod, building your first database and an app " +
+                "that could be used for any small business!", dataStorage));
+        data.add(new Data("Networking", "By the end of this course, you’ll know how to make " +
+                "a single-screen Android app with text and images. We’ll discuss " +
+                "how to create a user interface through a series of short videos " +
+                "with lots of hands-on practice.", networking));
 
         return data;
     }
@@ -80,7 +109,7 @@ public class LessonFragment extends Fragment {
         mRecyclerView = (RecyclerView) rootView.findViewById(recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        data = fill_with_data();
+        data=fill_with_data();
         mAdapter = new CustomAdapter(getActivity(),data);
         mRecyclerView.setAdapter(mAdapter);
         // Set CustomAdapter as the adapter for RecyclerView.
@@ -105,27 +134,6 @@ public class LessonFragment extends Fragment {
         itemAnimator.setAddDuration(1000);
         itemAnimator.setRemoveDuration(1000);
         mRecyclerView.setItemAnimator(itemAnimator);
-
-
-        // Lookup the swipe container view
-        swipeContainer = rootView.findViewById(swipeContainerLayout);
-        // Setup refresh listener which triggers new data loading
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // Your code to refresh the list here.
-                // Make sure you call swipeContainer.setRefreshing(false)
-                // once the network request has completed successfully.
-                //fetchTimelineAsync();
-            }
-        });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-
-
         return rootView;
     }
 
