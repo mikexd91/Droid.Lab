@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:fitsSystemWindows="true"
-    tools:context=".BrowserActivity">
+    tools:context="com.project.is3261.is3261_firebase.WebViewActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
