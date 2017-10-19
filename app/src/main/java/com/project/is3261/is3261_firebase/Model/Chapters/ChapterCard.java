@@ -1,4 +1,4 @@
-package com.project.is3261.is3261_firebase;
+package com.project.is3261.is3261_firebase.Model.Chapters;
 
 /**
  * Created by Bowen on 19/10/2017.

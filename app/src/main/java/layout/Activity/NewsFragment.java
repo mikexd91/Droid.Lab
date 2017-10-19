@@ -1,4 +1,4 @@
-package layout;
+package layout.Activity;
 
 
 import android.content.Intent;
@@ -18,10 +18,10 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.is3261.is3261_firebase.HomeActivity;
-import com.project.is3261.is3261_firebase.Model.CustomAdapter;
-import com.project.is3261.is3261_firebase.Model.CustomRVItemTouchListener;
-import com.project.is3261.is3261_firebase.Model.Data;
-import com.project.is3261.is3261_firebase.Model.RecyclerViewItemClickListener;
+import com.project.is3261.is3261_firebase.Model.News.CustomAdapter;
+import com.project.is3261.is3261_firebase.Model.News.CustomRVItemTouchListener;
+import com.project.is3261.is3261_firebase.Model.News.Data;
+import com.project.is3261.is3261_firebase.Model.News.RecyclerViewItemClickListener;
 import com.project.is3261.is3261_firebase.R;
 import com.project.is3261.is3261_firebase.WebViewActivity;
 

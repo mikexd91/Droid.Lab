@@ -19,9 +19,9 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import layout.LessonFragment;
-import layout.NewsFragment;
-import layout.QuizFragment;
+import layout.Activity.LessonFragment;
+import layout.Activity.NewsFragment;
+import layout.Activity.QuizFragment;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -153,7 +153,7 @@ public class HomeActivity extends AppCompatActivity
             ft.replace(R.id.mainFrame, quizFragment);
             ft.commit();
         } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, DetailLessonActivity.class);
             this.startActivity(intent);
         } else if (id == R.id.nav_signout) {
             FirebaseAuth.getInstance().signOut();

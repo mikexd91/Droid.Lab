@@ -1,4 +1,4 @@
-package com.project.is3261.is3261_firebase;
+package layout.Chapters;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.project.is3261.is3261_firebase.Model.Chapters.ChapterCard;
+import com.project.is3261.is3261_firebase.Model.Chapters.ChaptersCardArrayAdapter;
+import com.project.is3261.is3261_firebase.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,4 +1,4 @@
-package layout;
+package layout.Chapters;
 
 
 import android.os.Bundle;
@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.project.is3261.is3261_firebase.HomeActivity;
 import com.project.is3261.is3261_firebase.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuizFragment extends Fragment {
+public class ChaptersNetworkingFragment extends Fragment {
 
 
-    public QuizFragment() {
+    public ChaptersNetworkingFragment() {
         // Required empty public constructor
     }
 
@@ -25,8 +25,7 @@ public class QuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((HomeActivity) getActivity()).setActionBarTitle("Quiz");
-        return inflater.inflate(R.layout.fragment_quiz, container, false);
+        return inflater.inflate(R.layout.fragment_chapters_networking, container, false);
     }
 
 }

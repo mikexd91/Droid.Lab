@@ -1,4 +1,4 @@
-package com.project.is3261.is3261_firebase;
+package com.project.is3261.is3261_firebase.Model.Chapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.project.is3261.is3261_firebase.R;
 
 import java.util.ArrayList;
 import java.util.List;

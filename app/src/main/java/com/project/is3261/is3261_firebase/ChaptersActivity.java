@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import layout.Chapters.ChaptersUserInterfaceFragment;
+
 public class ChaptersActivity extends AppCompatActivity {
 
     @Override

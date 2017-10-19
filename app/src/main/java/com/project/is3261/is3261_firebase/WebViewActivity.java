@@ -19,7 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.project.is3261.is3261_firebase.Model.Utils;
+import com.project.is3261.is3261_firebase.Model.News.Utils;
 
 public class WebViewActivity extends AppCompatActivity {
 

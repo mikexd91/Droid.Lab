@@ -1,4 +1,4 @@
-package layout;
+package layout.Activity;
 
 
 import android.content.Intent;
@@ -19,10 +19,10 @@ import com.project.is3261.is3261_firebase.ChaptersActivity;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.project.is3261.is3261_firebase.HomeActivity;
-import com.project.is3261.is3261_firebase.Model.CustomAdapter;
-import com.project.is3261.is3261_firebase.Model.CustomRVItemTouchListener;
-import com.project.is3261.is3261_firebase.Model.Data;
-import com.project.is3261.is3261_firebase.Model.RecyclerViewItemClickListener;
+import com.project.is3261.is3261_firebase.Model.News.CustomAdapter;
+import com.project.is3261.is3261_firebase.Model.News.CustomRVItemTouchListener;
+import com.project.is3261.is3261_firebase.Model.News.Data;
+import com.project.is3261.is3261_firebase.Model.News.RecyclerViewItemClickListener;
 import com.project.is3261.is3261_firebase.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.project.is3261.is3261_firebase.Model;
+package com.project.is3261.is3261_firebase.Model.News;
 
 import android.content.Context;
 import android.widget.ImageView;
