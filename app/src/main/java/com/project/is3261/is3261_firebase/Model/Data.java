@@ -17,10 +17,10 @@ public class Data {
     public String publishedAt;
     public int imageId;
 
-    public Data(String title, String description, int imageId) {
+    public Data(String title, String description, String urlToImage) {
         this.title = title;
         this.description = description;
-        this.imageId = imageId;
+        this.urlToImage = urlToImage;
     }
 
     public Data(Context context, String author, String title, String description, String url, String urlToImage, String publishedAt) {
