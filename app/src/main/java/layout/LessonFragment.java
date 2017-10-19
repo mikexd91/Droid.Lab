@@ -121,7 +121,9 @@ public class LessonFragment extends Fragment {
                 Data data = list.get(position);
 
                 Intent i = new Intent(getActivity(), ChaptersActivity.class);
+                i.putExtra("title",data.getTitle().toString());
                 startActivity(i);
+
             }
 
             @Override
