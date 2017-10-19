@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.project.is3261.is3261_firebase.ChapterActivity">
+    tools:context="com.project.is3261.is3261_firebase.ChaptersActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chapter"/>
+
+    <FrameLayout
+        android:id="@+id/chapterFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>

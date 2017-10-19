@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.project.is3261.is3261_firebase.ChapterActivity;
+import com.project.is3261.is3261_firebase.ChaptersActivity;
 import com.project.is3261.is3261_firebase.HomeActivity;
 import com.project.is3261.is3261_firebase.Model.CustomAdapter;
 import com.project.is3261.is3261_firebase.Model.CustomRVItemTouchListener;
@@ -91,7 +91,7 @@ public class LessonFragment extends Fragment {
                 List<Data> list = mAdapter.getList();
                 Data data = list.get(position);
 
-                Intent i = new Intent(getActivity(), ChapterActivity.class);
+                Intent i = new Intent(getActivity(), ChaptersActivity.class);
                 startActivity(i);
             }
 

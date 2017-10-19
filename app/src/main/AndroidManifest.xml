@@ -41,7 +41,7 @@
             android:name=".WebViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DetailLessonActivity" />
-        <activity android:name=".ChapterActivity"></activity>
+        <activity android:name=".ChaptersActivity"></activity>
     </application>
 
 </manifest>
