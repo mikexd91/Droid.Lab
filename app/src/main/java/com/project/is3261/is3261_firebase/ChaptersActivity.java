@@ -14,7 +14,7 @@ public class ChaptersActivity extends AppCompatActivity {
 
         String title = getIntent().getStringExtra("title");
 
-        if(title.equals("User Interface")c){
+        if(title.equals("User Interface")){
             Toast.makeText(this,title,Toast.LENGTH_SHORT).show();
             ChaptersUserInterfaceFragment chaptersUserInterfaceFragment = new ChaptersUserInterfaceFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
