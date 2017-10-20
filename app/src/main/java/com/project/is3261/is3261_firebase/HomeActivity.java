@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -154,6 +155,9 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_settings) {
             Intent intent = new Intent(this, DetailLessonActivity.class);
+            intent.putExtra("title", "networking");
+            intent.putExtra("lesson", 2);
+            Toast.makeText(this,"lesson: "+ intent.getIntExtra("lesson",0), Toast.LENGTH_SHORT).show();
             this.startActivity(intent);
         } else if (id == R.id.nav_signout) {
             FirebaseAuth.getInstance().signOut();

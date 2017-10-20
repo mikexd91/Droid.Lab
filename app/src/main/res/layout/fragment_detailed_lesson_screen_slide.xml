@@ -5,17 +5,35 @@
     tools:context="layout.DetailedLessonScreenSlideFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/content"
+
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView style="?android:textAppearanceMedium"
+            android:padding="16dp"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text"
+            android:text="hello" />
 
         <TextView style="?android:textAppearanceMedium"
             android:padding="16dp"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/text1"
             android:text="hello" />
-    </ScrollView>
+
+        <TextView style="?android:textAppearanceMedium"
+            android:padding="16dp"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text2"
+            android:text="hello" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
 
 </FrameLayout>

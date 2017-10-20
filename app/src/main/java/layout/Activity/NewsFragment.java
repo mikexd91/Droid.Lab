@@ -107,6 +107,7 @@ public class NewsFragment extends Fragment {
                 Intent i = new Intent(getActivity(), WebViewActivity.class);
                 i.putExtra("url", data.getUrl().toString());
                 startActivity(i);
+
             }
 
             @Override
