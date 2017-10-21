@@ -7,8 +7,8 @@
     android:layout_marginTop="5dp"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
-    android:clickable="true"
-    android:focusable="true"
+    android:clickable="false"
+    android:focusable="false"
     app:cardUseCompatPadding="true"
     app:theme="@style/CardView.Dark"
     app:cardCornerRadius="4dp"
@@ -25,14 +25,16 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="Text line 1"/>
 
         <TextView
             android:id="@+id/description"
+            android:paddingTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Text line 2"
-            android:visibility="gone"/>
+            android:text="Text line 2" />
 
     </LinearLayout>
 

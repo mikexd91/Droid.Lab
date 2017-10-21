@@ -61,4 +61,5 @@ public class ChaptersCardArrayAdapter extends ArrayAdapter<ChapterCard> {
 
         return row;
     }
+
 }

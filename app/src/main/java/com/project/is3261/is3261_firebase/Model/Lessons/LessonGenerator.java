@@ -11,6 +11,9 @@ public class LessonGenerator {
     private Lesson mLesson;
     private int fragNum;
     private String lessonType;
+    private static int USER_INTERFACE_LESSON = 18;
+    private static int USER_INPUT_LESSON = 22;
+    private static int MULTIPLE_SCREEN_LESSON = 48;
 
     public LessonGenerator(){
 

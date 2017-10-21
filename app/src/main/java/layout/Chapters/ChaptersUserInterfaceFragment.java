@@ -1,12 +1,16 @@
 package layout.Chapters;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.project.is3261.is3261_firebase.DetailLessonActivity;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChapterCard;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChaptersCardArrayAdapter;
 import com.project.is3261.is3261_firebase.R;
@@ -15,7 +19,8 @@ import com.project.is3261.is3261_firebase.R;
  * A simple {@link Fragment} subclass.
  */
 public class ChaptersUserInterfaceFragment extends Fragment {
-
+    private ListView mListView;
+    private ChaptersCardArrayAdapter chaptersCardArrayAdapter;
     public ChaptersUserInterfaceFragment() {
         // Required empty public constructor
     }
@@ -25,9 +30,8 @@ public class ChaptersUserInterfaceFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_chapters_user_interface, container, false);
-        ListView mListView = (ListView) view.findViewById(R.id.listView);
-
-        ChaptersCardArrayAdapter chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
+        mListView = (ListView) view.findViewById(R.id.listView);
+        chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
         ChapterCard card;
         String title, description;
 
@@ -142,6 +146,22 @@ public class ChaptersUserInterfaceFragment extends Fragment {
         chaptersCardArrayAdapter.add(card);
 
         mListView.setAdapter(chaptersCardArrayAdapter);
+
+        mListView.setOnItemClickListener(new OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getActivity(), DetailLessonActivity.class);
+                i.putExtra("title","userInterface");
+                i.putExtra("lesson",position+1);
+                startActivity(i);
+            }
+        });
+
         return view;
+
+
     }
+
+
+
 }

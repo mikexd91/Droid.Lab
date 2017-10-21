@@ -1,13 +1,17 @@
 package layout.Chapters;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.project.is3261.is3261_firebase.DetailLessonActivity;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChapterCard;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChaptersCardArrayAdapter;
 import com.project.is3261.is3261_firebase.R;
@@ -18,7 +22,8 @@ import com.project.is3261.is3261_firebase.R;
  */
 public class ChaptersUserInputFragment extends Fragment {
 
-
+    private ListView mListView;
+    private ChaptersCardArrayAdapter chaptersCardArrayAdapter;
     public ChaptersUserInputFragment() {
         // Required empty public constructor
     }
@@ -29,9 +34,9 @@ public class ChaptersUserInputFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_chapters_user_input, container, false);
-        ListView mListView = (ListView) view.findViewById(R.id.listView);
+        mListView = (ListView) view.findViewById(R.id.listView);
 
-        ChaptersCardArrayAdapter chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
+        chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
         ChapterCard card;
         String title, description;
 
@@ -172,6 +177,16 @@ public class ChaptersUserInputFragment extends Fragment {
         chaptersCardArrayAdapter.add(card);
 
         mListView.setAdapter(chaptersCardArrayAdapter);
+
+        mListView.setOnItemClickListener(new OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getActivity(), DetailLessonActivity.class);
+                i.putExtra("title","userInput");
+                i.putExtra("lesson",position+1);
+                startActivity(i);
+            }
+        });
         return view;
     }
 

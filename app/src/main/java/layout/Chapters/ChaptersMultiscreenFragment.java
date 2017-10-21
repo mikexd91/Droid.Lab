@@ -1,13 +1,17 @@
 package layout.Chapters;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+import com.project.is3261.is3261_firebase.DetailLessonActivity;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChapterCard;
 import com.project.is3261.is3261_firebase.Model.Chapters.ChaptersCardArrayAdapter;
 import com.project.is3261.is3261_firebase.R;
@@ -18,7 +22,8 @@ import com.project.is3261.is3261_firebase.R;
  */
 public class ChaptersMultiscreenFragment extends Fragment {
 
-
+    private ListView mListView;
+    private ChaptersCardArrayAdapter chaptersCardArrayAdapter;
     public ChaptersMultiscreenFragment() {
         // Required empty public constructor
     }
@@ -29,9 +34,9 @@ public class ChaptersMultiscreenFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_chapters_multiscreen, container, false);
-        ListView mListView = (ListView) view.findViewById(R.id.listView);
+        mListView = (ListView) view.findViewById(R.id.listView);
 
-        ChaptersCardArrayAdapter chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
+        chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
         ChapterCard card;
         String title, description;
 
@@ -275,52 +280,71 @@ public class ChaptersMultiscreenFragment extends Fragment {
         //Activity Lifecycle and Audio Playback
 
         //Fragments
+        //card40
         title = "Navigation Patterns in Android";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card41
         title = "Up Button";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card42
         title = "Upcoming Changes";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card43
         title = "Sample ViewPager";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card44
         title = "Intro to Fragments";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card45
         title = "Fragment Lifecycle";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card46
         title = "Refactor Category Activities";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card47
         title = "ViewPager and FragmentPagerAdapter";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
+        //card48
         title = "Add Tabs to ViewPager";
         description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         mListView.setAdapter(chaptersCardArrayAdapter);
+        mListView.setOnItemClickListener(new OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),"hello",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), DetailLessonActivity.class);
+                i.putExtra("title","multipleScreen");
+                i.putExtra("lesson",position+1);
+                startActivity(i);
+            }
+        });
         return view;
     }
 
