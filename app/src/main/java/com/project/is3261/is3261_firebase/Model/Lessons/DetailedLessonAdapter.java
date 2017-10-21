@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -25,91 +27,45 @@ public class DetailedLessonAdapter extends FragmentStatePagerAdapter {
     private FragmentManager mFragmentManager;
     private ArrayList<Lesson> mLessonList;
     private final Bundle fragmentBundle;
+    private Lesson mLesson;
+    private int fragNum;
+    private int lessonNum;
+    private String lessonType;
 
     public DetailedLessonAdapter(FragmentManager fm, Bundle bundle) {
         super(fm);
         this.mFragmentManager = fm;
         this.fragmentBundle = bundle;
+
+        this.fragNum = fragmentBundle.getInt("val");
+        this.lessonType = fragmentBundle.getString("title");
+        this.lessonNum = fragmentBundle.getInt("lesson");
+        LessonGenerator newLesson = new LessonGenerator(fragNum, lessonType, lessonNum);
+        this.mLesson = newLesson.getLesson();
+        this.mLessonList = newLesson.getLessonList();
     }
 
     @Override
     public int getCount() {
-        if (fragmentBundle.getString("title").toString().equalsIgnoreCase("userInterface")){
-            switch(fragmentBundle.getInt("lesson")){
-                case 1:
-                    return Lesson.USER_INTERFACE_1;
-                case 2:
-                    return Lesson.USER_INTERFACE_2;
-                case 3:
-                    return Lesson.USER_INTERFACE_3;
-                case 4:
-                    return Lesson.USER_INTERFACE_4;
-                case 5:
-                    return Lesson.USER_INTERFACE_5;
-            }
-        }else if (fragmentBundle.getString("title").toString().equalsIgnoreCase("userInput")){
-            switch(fragmentBundle.getInt("lesson")){
-                case 1:
-                    return Lesson.USER_INPUT_1;
-                case 2:
-                    return Lesson.USER_INPUT_2;
-                case 3:
-                    return Lesson.USER_INPUT_3;
-                case 4:
-                    return Lesson.USER_INPUT_4;
-                case 5:
-                    return Lesson.USER_INPUT_5;
-            }
-        }else if (fragmentBundle.getString("title").toString().equalsIgnoreCase("multipleScreen")){
-            switch(fragmentBundle.getInt("lesson")){
-                case 1:
-                    return Lesson.MULTIPLE_SCREEN_1;
-                case 2:
-                    return Lesson.MULTIPLE_SCREEN_2;
-                case 3:
-                    return Lesson.MULTIPLE_SCREEN_3;
-                case 4:
-                    return Lesson.MULTIPLE_SCREEN_4;
-                case 5:
-                    return Lesson.MULTIPLE_SCREEN_5;
-            }
-        }else if (fragmentBundle.getString("title").toString().equalsIgnoreCase("dataStorage")){
-            switch(fragmentBundle.getInt("lesson")){
-                case 1:
-                    return Lesson.DATA_STORAGE_1;
-                case 2:
-                    return Lesson.DATA_STORAGE_2;
-                case 3:
-                    return Lesson.DATA_STORAGE_3;
-                case 4:
-                    return Lesson.DATA_STORAGE_4;
-                case 5:
-                    return Lesson.DATA_STORAGE_5;
-            }
-        }else if (fragmentBundle.getString("title").toString().equalsIgnoreCase("networking")){
-            switch(fragmentBundle.getInt("lesson")){
-                case 1:
-                    return Lesson.NETWORKING_1;
-                case 2:
-                    return Lesson.NETWORKING_2;
-                case 3:
-                    return Lesson.NETWORKING_3;
-                case 4:
-                    return Lesson.NETWORKING_4;
-                case 5:
-                    return Lesson.NETWORKING_5;
-            }
-        }
-        return Lesson.USER_INTERFACE_1;
+        return mLessonList.size();
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return PagerAdapter.POSITION_NONE;
     }
 
     @Override
     public Fragment getItem(int position) {
-        this.fragmentBundle.putInt("val",position);
-        final DetailedLessonScreenSlideFragment mFragment = new DetailedLessonScreenSlideFragment();
-        mFragment.setArguments(this.fragmentBundle);
-        return mFragment;
+//        this.fragmentBundle.putInt("val",position);
+//        DetailedLessonScreenSlideFragment mFragment = new DetailedLessonScreenSlideFragment();
+//        mFragment.setArguments(this.fragmentBundle);
+//        return mFragment;
+        return DetailedLessonScreenSlideFragment.init(position,lessonType,lessonNum);
     }
 
-
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        return super.instantiateItem(container, position);
+    }
 }

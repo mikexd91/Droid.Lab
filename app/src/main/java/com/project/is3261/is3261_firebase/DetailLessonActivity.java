@@ -21,7 +21,6 @@ public class DetailLessonActivity extends AppCompatActivity {
      */
     private ViewPager mPager;
     private DetailedLessonAdapter mAdapter;
-    private static final int ITEMS = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class DetailLessonActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String title = getIntent().getStringExtra("title");
-        int lesson = getIntent().getIntExtra("lesson",1);
+        int lesson = getIntent().getIntExtra("lesson",0);
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
         bundle.putInt("lesson", lesson);
@@ -41,9 +40,9 @@ public class DetailLessonActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(title + " "+ lesson);
 
         ArrayList<Lesson> mLessonList = new ArrayList<Lesson>();
-        mAdapter = new DetailedLessonAdapter(getSupportFragmentManager(),bundle);
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPager.setAdapter(mAdapter);
+        this.mAdapter = new DetailedLessonAdapter(getSupportFragmentManager(),bundle);
+        this.mPager = (ViewPager) findViewById(R.id.pager);
+        this.mPager.setAdapter(this.mAdapter);
 
         Button button = (Button) findViewById(R.id.previous);
         button.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +57,13 @@ public class DetailLessonActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void onComplete() {
+        // After the fragment completes, it calls this callback.
+        // setup the rest of your layout now
+        this.mPager.setCurrentItem(0);
     }
 
     @Override
@@ -80,6 +86,12 @@ public class DetailLessonActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.mPager.setCurrentItem(0);
     }
 
 }

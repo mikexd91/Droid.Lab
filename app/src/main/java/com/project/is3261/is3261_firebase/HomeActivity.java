@@ -155,8 +155,8 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_settings) {
             Intent intent = new Intent(this, DetailLessonActivity.class);
-            intent.putExtra("title", "networking");
-            intent.putExtra("lesson", 2);
+            intent.putExtra("title", "userInterface");
+            intent.putExtra("lesson", 1);
             Toast.makeText(this,"lesson: "+ intent.getIntExtra("lesson",0), Toast.LENGTH_SHORT).show();
             this.startActivity(intent);
         } else if (id == R.id.nav_signout) {

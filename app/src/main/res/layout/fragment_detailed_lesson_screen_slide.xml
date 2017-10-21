@@ -11,15 +11,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView style="?android:textAppearanceMedium"
-            android:padding="16dp"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text"
             android:text="hello" />
 
+        <FrameLayout
+            android:id="@+id/frame_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></FrameLayout>
+
         <TextView style="?android:textAppearanceMedium"
-            android:padding="16dp"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +30,6 @@
             android:text="hello" />
 
         <TextView style="?android:textAppearanceMedium"
-            android:padding="16dp"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class LessonGenerator {
+    private ArrayList<Lesson> mLessonList;
     private Lesson mLesson;
     private int fragNum;
     private String lessonType;
@@ -30,7 +31,7 @@ public class LessonGenerator {
     }
 
     private Lesson generateUserInterfaceLesson(int fragNum, int lessonNum){
-        ArrayList<Lesson> mLessonList = new ArrayList<>();
+        mLessonList = new ArrayList<>();
         switch(lessonNum){
             case 1:
                 mLessonList.add(new Lesson("User Interface 1-1", "this is a description 1"));
@@ -68,7 +69,7 @@ public class LessonGenerator {
     }
 
     private Lesson generateUserInput(int fragNum, int lessonNum){
-        ArrayList<Lesson> mLessonList = new ArrayList<>();
+        mLessonList = new ArrayList<>();
         switch(lessonNum){
             case 1:
                 mLessonList.add(new Lesson("User Input 1-1", "this is a description 1"));
@@ -105,7 +106,7 @@ public class LessonGenerator {
     }
 
     private Lesson generateMultipleScreen(int fragNum, int lessonNum){
-        ArrayList<Lesson> mLessonList = new ArrayList<>();
+        mLessonList = new ArrayList<>();
         switch(lessonNum){
             case 1:
                 mLessonList.add(new Lesson("Multiple Screen 1-1", "this is a description 1"));
@@ -142,7 +143,7 @@ public class LessonGenerator {
     }
 
     private Lesson generateDataStorage(int fragNum, int lessonNum){
-        ArrayList<Lesson> mLessonList = new ArrayList<>();
+        mLessonList = new ArrayList<>();
         switch(lessonNum){
             case 1:
                 mLessonList.add(new Lesson("Data Storage 1-1", "this is a description 1"));
@@ -179,7 +180,7 @@ public class LessonGenerator {
     }
 
     private Lesson generateNetworking(int fragNum, int lessonNum){
-        ArrayList<Lesson> mLessonList = new ArrayList<>();
+        mLessonList = new ArrayList<>();
         switch(lessonNum){
             case 1:
                 mLessonList.add(new Lesson("Networking 1-1", "this is a description 1"));
@@ -218,4 +219,5 @@ public class LessonGenerator {
     public Lesson getLesson(){
         return this.mLesson;
     }
+    public ArrayList<Lesson> getLessonList(){ return this.mLessonList;}
 }
