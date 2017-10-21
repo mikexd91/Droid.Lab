@@ -45,8 +45,7 @@ public class ChaptersCardArrayAdapter extends ArrayAdapter<ChapterCard> {
         View row = convertView;
 
         if (row == null) {
-            LayoutInflater inflater = (LayoutInflater)getContext()
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.card_chapter, parent, false);
            // row = LayoutInflater.from(getContext()).inflate(R.layout.card_chapter, parent, false);
         }
