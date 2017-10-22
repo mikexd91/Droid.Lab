@@ -43,67 +43,67 @@ public class ChaptersMultiscreenFragment extends Fragment {
         //Intents and Activities
         //card1
         title = "Course Map";
-        description = "";
+        description = "Let's look at an overview for this lesson.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card2
         title = "Overview of the Miwok App";
-        description = "";
+        description = "Let's look at an overview for the Miwok app.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card3
         title = "Import an Existing Project";
-        description = "";
+        description = "We've created an initial version for you to start off with.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card4
         title = "Checking the build.gradle file";
-        description = "";
+        description = "A build configuration script for the project.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card5
         title = "Read MainActivity.java file";
-        description = "";
+        description = "MainActivity and other activities.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card6
         title = "Create New Activities";
-        description = "";
+        description = "Activities, activities and more activities";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card7
         title = "The AndroidManifest.xml file";
-        description = "";
+        description = "A table of contents for the app.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card8
         title = "Use an Intent to Open Another Activity";
-        description = "";
+        description = "Navigating to other activities.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card9
         title = "Implicit vs Explicit Intents";
-        description = "";
+        description = "What's the difference?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card10
         title = "Modifying the Activity Name";
-        description = "";
+        description = "Changing the name for different activities.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card11
         title = "Event Listeners in Android";
-        description = "";
+        description = "Listening for user input events";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
@@ -115,44 +115,44 @@ public class ChaptersMultiscreenFragment extends Fragment {
 
         //card13
         title = "What is an Interface?";
-        description = "";
+        description = "Interfaces Vs classes.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card14
         title = "How to Create an Event Listener";
-        description = "";
+        description = "Let's learn to setup an event listener.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card15
         title = "Use OnClickListeners For all Categories";
-        description = "";
+        description = "Another way to setup an event listener.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card16
         title = "OnClickListener Vs onClick";
-        description = "";
+        description = "What's the difference?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //Lesson 2
         //card17
         title = "Memory is a Limited Resource";
-        description = "";
+        description = "How to manage memory when building an Android app.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card18
         title = "View Recycling";
-        description = "";
+        description = "Making efficient use of memory.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card19
         title = "Analogy for ListView";
-        description = "";
+        description = "When to recycle views?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
@@ -164,116 +164,110 @@ public class ChaptersMultiscreenFragment extends Fragment {
 
         //card21
         title = "ListView and ArrayAdapter";
-        description = "";
+        description = "What to do when there are too many items on screen?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card22
         title = "ListView and ArrayAdapter Code";
-        description = "";
+        description = "Let's look at the code for a ListView and an ArrayAdapter.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card23
         title = "Build List Item Layout";
-        description = "";
+        description = "Using a layout for an item repeatedly.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card24
         title = "Custom Word Class";
-        description = "";
+        description = "Defining a custom class for our app.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card25
         title = "Need a Custom ArrayAdapter";
-        description = "";
+        description = "Implementing a custom ArrayAdapter.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card26
         title = "Example App with Custom ArrayAdapter";
-        description = "";
+        description = "An example using custom ArrayAdapter.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card27
         title = "Custom ArrayAdapter";
-        description = "";
+        description = "Let's start using our custom ArrayAdapter.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //Images and Visual Polish
         //card28
         title = "Scope Out Work for a New Feature";
-        description = "";
+        description = "Looking at what we have to do and how for new features.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card29
         title = "What Order to Make Changes In";
-        description = "";
+        description = "A plan for making changes.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card30
         title = "Modify List Item Layout";
-        description = "";
+        description = "Modifying the layout to add images.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card31
         title = "Asset Drop";
-        description = "";
+        description = "What's an asset?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card32
         title = "Add Image Assets to the App";
-        description = "";
+        description = "Different sizes for an image asset.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card33
         title = "Plan How to Modify Word Class";
-        description = "";
-        card = new ChapterCard(title, description);
-        chaptersCardArrayAdapter.add(card);
-
-        //card34
-        title = "Modify Word Class";
-        description = "";
+        description = "How do we go about modifying the word class to support images?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card35
         title = "Multiple Constructors for Word Class";
-        description = "";
+        description = "Creating different constructors.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card36
         title = "Modify the WordAdapter Class";
-        description = "";
+        description = "Modify instructions to set correct images on ImageView.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card37
         title = "Fix PhrasesActivity to Hide Images";
-        description = "";
+        description = "Changing view visibility.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card38
         title = "Visual Polish";
-        description = "";
+        description = "Time to polish our app!";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card39
         title = "Different Background Colors for List Items";
-        description = "";
+        description = "Changing colors for list items.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
@@ -282,55 +276,55 @@ public class ChaptersMultiscreenFragment extends Fragment {
         //Fragments
         //card40
         title = "Navigation Patterns in Android";
-        description = "";
+        description = "There are many ways to navigate around apps.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card41
         title = "Up Button";
-        description = "";
+        description = "Up button Vs Back button.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card42
         title = "Upcoming Changes";
-        description = "";
+        description = "We're going to approach several changes in multiple stages.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card43
         title = "Sample ViewPager";
-        description = "";
+        description = "What is a ViewPager?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card44
         title = "Intro to Fragments";
-        description = "";
+        description = "Let's take a look at fragments.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card45
         title = "Fragment Lifecycle";
-        description = "";
+        description = "A fragment has its own lifecycle.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card46
         title = "Refactor Category Activities";
-        description = "";
+        description = "Changing activities to fragments.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card47
         title = "ViewPager and FragmentPagerAdapter";
-        description = "";
+        description = "Modifying MainActivity so that it uses a ViewPager.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
         //card48
         title = "Add Tabs to ViewPager";
-        description = "";
+        description = "Now let's add tabs to know there are more pages to swipe to.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
