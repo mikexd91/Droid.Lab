@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    //myRef.setValue("Hello, World!");
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out

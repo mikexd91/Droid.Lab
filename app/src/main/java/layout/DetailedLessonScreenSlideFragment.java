@@ -13,22 +13,35 @@ import android.widget.Toast;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.project.is3261.is3261_firebase.Model.Lessons.Lesson;
 import com.project.is3261.is3261_firebase.Model.Lessons.LessonGenerator;
 import com.project.is3261.is3261_firebase.Model.Lessons.YoutubeHelper;
 import com.project.is3261.is3261_firebase.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DetailedLessonScreenSlideFragment extends Fragment implements YouTubePlayer.OnInitializedListener {
     private Lesson mLesson;
+    private ArrayList<Lesson> mLessonList;
     private int fragNum;
     private int lessonNum;
     private String lessonType;
     private YouTubePlayer youTubePlayer;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
-    public DetailedLessonScreenSlideFragment(){
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+
+    public DetailedLessonScreenSlideFragment() {
 
     }
 
@@ -52,13 +65,13 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         super.onCreate(savedInstanceState);
 
         this.fragNum = getArguments() != null ? getArguments().getInt("val") : 0;
-        Toast.makeText(getActivity(), "hello "+ this.fragNum, Toast.LENGTH_SHORT).show();
-        this.lessonType = getArguments() != null ? getArguments().getString("title"): "userInterface";
-        this.lessonNum = getArguments() != null ? getArguments().getInt("lesson"): 1;
+        Toast.makeText(getActivity(), "hello " + this.fragNum, Toast.LENGTH_SHORT).show();
+        this.lessonType = getArguments() != null ? getArguments().getString("title") : "userInterface";
+        this.lessonNum = getArguments() != null ? getArguments().getInt("lesson") : 1;
         LessonGenerator newLesson = new LessonGenerator(fragNum, lessonType, lessonNum);
         this.mLesson = newLesson.getLesson();
-
-        if(this.fragNum==0) {
+        this.mLessonList = newLesson.getLessonList();
+        if (this.fragNum == 0) {
             youTubePlayerSupportFragment = new YouTubePlayerSupportFragment().newInstance();
             if (getUserVisibleHint()) {
                 // Log.v (TAG, "Committing transaction, URL : " + getArguments().getString(KeyConstant.KEY_VIDEO_URL));
@@ -67,6 +80,24 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 youTubePlayerSupportFragment.initialize(YoutubeHelper.getApiKey(), this);
             }
         }
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Write a message to the database
+                database = FirebaseDatabase.getInstance();
+                myRef = database.getReference()
+                        .child("users")
+                        .child(user.getUid())
+                        .child("lesson")
+                        .child(lessonType)
+                        .child(String.valueOf(lessonNum));
+                myRef.child("fragNum").setValue(String.valueOf(fragNum));
+                myRef.child("isComplete").setValue("false");
+                if (this.fragNum == mLessonList.size() - 1) {
+                    myRef.child("isComplete").setValue("true");
+                }
+            }
+
     }
 
     @Override
@@ -98,8 +129,8 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         View tv2 = layoutView.findViewById(R.id.text2);
         ((TextView) tv2).setText(mLesson.getDescription().toString());
 
-            //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            //getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         return layoutView;

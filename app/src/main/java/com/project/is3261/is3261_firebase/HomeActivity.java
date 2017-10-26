@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import layout.Activity.LessonFragment;
 import layout.Activity.NewsFragment;
@@ -29,6 +31,8 @@ public class HomeActivity extends AppCompatActivity
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authListener;
+    private DatabaseReference myRef;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +73,36 @@ public class HomeActivity extends AppCompatActivity
                     // launch login activity
                     startActivity(new Intent(HomeActivity.this, MainActivity.class));
                     finish();
+                }else{
+                    // Write a message to the database
+                    database = FirebaseDatabase.getInstance();
+                    myRef = database.getReference().child("users").child(user.getUid());
+                    myRef.child("userName").setValue(user.getDisplayName());
+                    myRef.child("userId").setValue(user.getUid());
+                    myRef.child("userEmail").setValue(user.getEmail());
+                    myRef.child("userPhoto").setValue(user.getPhotoUrl());
+
                 }
             }
         };
+
+//        // Read from the database
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // This method is called once with the initial value and again
+//                // whenever data at this location is updated.
+//                String value = dataSnapshot.getValue(String.class);
+//
+//               // Log.d(TAG, "Value is: " + value);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                // Failed to read value
+//                //Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
 
         NewsFragment newsFragment = new NewsFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
