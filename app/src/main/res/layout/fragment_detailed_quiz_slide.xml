@@ -40,12 +40,24 @@
                 android:id="@+id/header2"
                 android:text="hello" />
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text2"
-                android:text="hello" />
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView style="?android:textAppearanceMedium"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text2"
+                    android:text="hello" />
+
+            </LinearLayout>
 
             <TextView style="?android:textAppearanceMedium"
                 android:lineSpacingMultiplier="1.2"
@@ -55,12 +67,24 @@
                 android:id="@+id/header3"
                 android:text="hello" />
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text3"
-                android:text="hello" />
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView style="?android:textAppearanceMedium"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text3"
+                    android:text="hello" />
+
+            </LinearLayout>
 
             <TextView style="?android:textAppearanceMedium"
                 android:lineSpacingMultiplier="1.2"
@@ -70,12 +94,24 @@
                 android:id="@+id/header4"
                 android:text="hello" />
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text4"
-                android:text="hello" />
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView style="?android:textAppearanceMedium"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text4"
+                    android:text="hello" />
+
+            </LinearLayout>
 
             <TextView style="?android:textAppearanceMedium"
                 android:lineSpacingMultiplier="1.2"
@@ -85,12 +121,37 @@
                 android:id="@+id/header5"
                 android:text="hello" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView style="?android:textAppearanceMedium"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text5"
+                    android:text="hello" />
+
+            </LinearLayout>
+
             <TextView style="?android:textAppearanceMedium"
                 android:lineSpacingMultiplier="1.2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textResult"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/buttonSubmitAns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text5"
-                android:text="hello" />
+                android:text="Submit"/>
 
         </android.support.v7.widget.LinearLayoutCompat>
 

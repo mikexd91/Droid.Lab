@@ -32,10 +32,13 @@ public class QuizGenerator {
 
     private Quiz generateUserInterface(int fragNum, int quizNum) {
         mQuizList = new ArrayList<>();
-        String[] options = {QuizContent.QUIZ_1_OPTION_1,
+        String[] options1 = {QuizContent.QUIZ_1_OPTION_1,
         QuizContent.QUIZ_1_OPTION_2, QuizContent.QUIZ_1_OPTION_3, QuizContent.QUIZ_1_OPTION_4};
-        mQuizList.add(new Quiz(QuizContent.QUIZ_1, options, 1));
-        mQuizList.add(new Quiz(QuizContent.QUIZ_1, options, 1));
+
+        String[] options2 = {QuizContent.QUIZ_2_OPTION_1,
+                QuizContent.QUIZ_2_OPTION_2, QuizContent.QUIZ_2_OPTION_3, QuizContent.QUIZ_2_OPTION_4};
+        mQuizList.add(new Quiz(QuizContent.QUIZ_1, options1, 1));
+        mQuizList.add(new Quiz(QuizContent.QUIZ_2, options2, 2));
         return mQuizList.get(fragNum);
     }
 

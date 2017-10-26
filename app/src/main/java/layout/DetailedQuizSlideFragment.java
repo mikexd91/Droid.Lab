@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.project.is3261.is3261_firebase.Model.Quiz.QuizGenerator;
 import com.project.is3261.is3261_firebase.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -113,30 +116,91 @@ public class DetailedQuizSlideFragment extends Fragment {
         ((TextView) tv1).setText(mQuiz.getQuizQuestion().toString());
         //Toast.makeText(getActivity(), "quiz 2 " + mQuiz.getQuizQuestion().toString(), Toast.LENGTH_SHORT).show();
 
-        for(int i=0; i< mQuiz.getQuizOptions().length;i++){
-            switch(i){
-                case 1:
-                    View tv2 = layoutView.findViewById(R.id.text2);
-                    ((TextView) tv2).setText(mQuiz.getQuizOptions()[0].toString());
-                    break;
-                case 2:
-                    View tv3 = layoutView.findViewById(R.id.text3);
-                    ((TextView) tv3).setText(mQuiz.getQuizOptions()[1].toString());
-                    break;
-                case 3:
-                    View tv4 = layoutView.findViewById(R.id.text4);
-                    ((TextView) tv4).setText(mQuiz.getQuizOptions()[2].toString());
-                    break;
-                case 4:
-                    View tv5 = layoutView.findViewById(R.id.text5);
-                    ((TextView) tv5).setText(mQuiz.getQuizOptions()[3].toString());
-                    break;
-            }
-        }
+        View tv2 = layoutView.findViewById(R.id.text2);
+        ((TextView) tv2).setText(mQuiz.getQuizOptions()[0].toString());
+
+        View tv3 = layoutView.findViewById(R.id.text3);
+        ((TextView) tv3).setText(mQuiz.getQuizOptions()[1].toString());
+
+        View tv4 = layoutView.findViewById(R.id.text4);
+        ((TextView) tv4).setText(mQuiz.getQuizOptions()[2].toString());
+
+        View tv5 = layoutView.findViewById(R.id.text5);
+        ((TextView) tv5).setText(mQuiz.getQuizOptions()[3].toString());
+
 
         //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
+        //Check user radio button input
+        final RadioButton radioButton1 = (RadioButton) layoutView.findViewById(R.id.radioButton1);
+        final RadioButton radioButton2 = (RadioButton) layoutView.findViewById(R.id.radioButton2);
+        final RadioButton radioButton3 = (RadioButton) layoutView.findViewById(R.id.radioButton3);
+        final RadioButton radioButton4 = (RadioButton) layoutView.findViewById(R.id.radioButton4);
+        final ArrayList<RadioButton> radioButtonArrayList = new ArrayList<>(Arrays.asList(radioButton1, radioButton2, radioButton3, radioButton4));
+
+        final Button submitAnsButton = (Button) layoutView.findViewById(R.id.buttonSubmitAns);
+        final TextView resultText = (TextView) layoutView.findViewById(R.id.textResult);
+
+        radioButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                radioButton1.setChecked(true);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(false);
+            }
+        });
+
+        radioButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(true);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(false);
+            }
+        });
+
+        radioButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(true);
+                radioButton4.setChecked(false);
+            }
+        });
+
+        radioButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(true);
+            }
+        });
+
+        submitAnsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isCorrect = false;
+
+                for (int i=0; i<radioButtonArrayList.size(); i++) {
+                    if (radioButtonArrayList.get(i).isChecked() && (mQuiz.getQuizAnswer() == (i+1))) {
+                        resultText.setText("Correct!");
+                        isCorrect = true;
+                        break;
+                    }
+                }
+                if (!isCorrect) {
+                    resultText.setText("Try Again!");
+                }
+                resultText.setVisibility(View.VISIBLE);
+            }
+        });
 
         return layoutView;
     }
