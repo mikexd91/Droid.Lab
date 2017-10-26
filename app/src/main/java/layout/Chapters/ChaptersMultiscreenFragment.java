@@ -59,12 +59,6 @@ public class ChaptersMultiscreenFragment extends Fragment {
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
-        //card4
-        title = "Checking the build.gradle file";
-        description = "A build configuration script for the project.";
-        card = new ChapterCard(title, description);
-        chaptersCardArrayAdapter.add(card);
-
         //card5
         title = "Read MainActivity.java file";
         description = "MainActivity and other activities.";
@@ -158,7 +152,7 @@ public class ChaptersMultiscreenFragment extends Fragment {
 
         //card20
         title = "Switch to Using ListView and ArrayAdapter";
-        description = "";
+        description = "Making the switch";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
