@@ -80,10 +80,10 @@ public class LessonFragment extends Fragment {
                 "a single-screen Android app with text and images. We’ll discuss " +
                 "how to create a user interface through a series of short videos " +
                 "with lots of hands-on practice.", multipleScreen));
-        data.add(new Data("Data Storage", "In this course, you'll learn the basics of data " +
+        data.add(new Data("Data Storage (Coming Soon)", "In this course, you'll learn the basics of data " +
                 "storage in Andriod, building your first database and an app " +
                 "that could be used for any small business!", dataStorage));
-        data.add(new Data("Networking", "By the end of this course, you’ll know how to make " +
+        data.add(new Data("Networking (Coming Soon)", "By the end of this course, you’ll know how to make " +
                 "a single-screen Android app with text and images. We’ll discuss " +
                 "how to create a user interface through a series of short videos " +
                 "with lots of hands-on practice.", networking));
@@ -119,10 +119,11 @@ public class LessonFragment extends Fragment {
             public void onClick(View view, int position) {
                 List<Data> list = mAdapter.getList();
                 Data data = list.get(position);
-
-                Intent i = new Intent(getActivity(), ChaptersActivity.class);
-                i.putExtra("title",data.getTitle().toString());
-                startActivity(i);
+                if(position<3) {
+                    Intent i = new Intent(getActivity(), ChaptersActivity.class);
+                    i.putExtra("title", data.getTitle().toString());
+                    startActivity(i);
+                }
 
             }
 

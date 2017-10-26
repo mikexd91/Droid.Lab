@@ -5,16 +5,21 @@
     tools:context="layout.DetailedLessonScreenSlideFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         android:orientation="vertical">
+
         <TextView style="?android:textAppearanceMedium"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text"
+            android:textStyle="bold"
+            android:id="@+id/header1"
             android:text="hello" />
 
         <FrameLayout
@@ -22,11 +27,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></FrameLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
         <TextView style="?android:textAppearanceMedium"
             android:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text1"
+            android:textStyle="bold"
+            android:id="@+id/header2"
             android:text="hello" />
 
         <TextView style="?android:textAppearanceMedium"
@@ -35,7 +46,53 @@
             android:layout_height="wrap_content"
             android:id="@+id/text2"
             android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/header3"
+            android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text3"
+            android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/header4"
+            android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text4"
+            android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/header5"
+            android:text="hello" />
+
+        <TextView style="?android:textAppearanceMedium"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text5"
+            android:text="hello" />
+
     </android.support.v7.widget.LinearLayoutCompat>
 
-
+    </ScrollView>
 </FrameLayout>

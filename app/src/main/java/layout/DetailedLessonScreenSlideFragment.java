@@ -4,6 +4,8 @@ package layout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
     private int fragNum;
     private int lessonNum;
     private String lessonType;
+    private String youtubeLink;
     private YouTubePlayer youTubePlayer;
     private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
 
@@ -71,7 +74,9 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         LessonGenerator newLesson = new LessonGenerator(fragNum, lessonType, lessonNum);
         this.mLesson = newLesson.getLesson();
         this.mLessonList = newLesson.getLessonList();
-        if (this.fragNum == 0) {
+
+        if (this.mLesson.isVideoAvailable) {
+            this.youtubeLink = this.mLesson.getYoutube();
             youTubePlayerSupportFragment = new YouTubePlayerSupportFragment().newInstance();
             if (getUserVisibleHint()) {
                 // Log.v (TAG, "Committing transaction, URL : " + getArguments().getString(KeyConstant.KEY_VIDEO_URL));
@@ -103,7 +108,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         this.youTubePlayer = youTubePlayer;
-        this.youTubePlayer.loadVideo("W4hTJybfU7s");
+        this.youTubePlayer.loadVideo(youtubeLink);
         this.youTubePlayer.play();
     }
 
@@ -122,12 +127,27 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         View layoutView = inflater.inflate(R.layout.fragment_detailed_lesson_screen_slide,
                 container, false);
 
-        View tv = layoutView.findViewById(R.id.text);
-        ((TextView) tv).setText("Truiton Fragment #" + fragNum);
-        View tv1 = layoutView.findViewById(R.id.text1);
+        View tv = layoutView.findViewById(R.id.header2);
+        ((TextView) tv).setText("Fragment #" + fragNum);
+        View tv1 = layoutView.findViewById(R.id.text2);
         ((TextView) tv1).setText(mLesson.getTitle().toString());
-        View tv2 = layoutView.findViewById(R.id.text2);
-        ((TextView) tv2).setText(mLesson.getDescription().toString());
+
+        for(int i=0; i< mLesson.getDescription().length;i++){
+            switch(i){
+                case 1:
+                    View tv2 = layoutView.findViewById(R.id.text3);
+                    ((TextView) tv2).setText(Html.fromHtml(mLesson.getDescription()[0]));
+                    ((TextView) tv2).setMovementMethod(LinkMovementMethod.getInstance());
+                    break;
+                case 2:
+                    View tv3 = layoutView.findViewById(R.id.header4);
+                    ((TextView) tv3).setText(mLesson.getDescription()[1].toString());
+                    break;
+                case 3:
+                    View tv4 = layoutView.findViewById(R.id.text4);
+                    ((TextView) tv4).setText(mLesson.getDescription()[2].toString());
+            }
+        }
 
         //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);

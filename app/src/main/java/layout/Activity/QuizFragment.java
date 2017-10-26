@@ -1,12 +1,15 @@
 package layout.Activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -15,7 +18,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.is3261.is3261_firebase.DetailQuizActivity;
 import com.project.is3261.is3261_firebase.HomeActivity;
+import com.project.is3261.is3261_firebase.Model.Chapters.ChapterCard;
+import com.project.is3261.is3261_firebase.Model.Chapters.ChaptersCardArrayAdapter;
 import com.project.is3261.is3261_firebase.R;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
@@ -27,6 +33,10 @@ public class QuizFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private FirebaseUser user;
+
+    private ListView mListView;
+    private ChaptersCardArrayAdapter chaptersCardArrayAdapter;
+
     public QuizFragment() {
         // Required empty public constructor
     }
@@ -36,6 +46,7 @@ public class QuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_quiz, container, false);
         ((HomeActivity) getActivity()).setActionBarTitle("Quiz");
 
 
@@ -79,7 +90,38 @@ public class QuizFragment extends Fragment {
 //                    .child(user.getUid());
 
         }
-        return inflater.inflate(R.layout.fragment_quiz, container, false);
+
+        mListView = (ListView) view.findViewById(R.id.listView);
+        chaptersCardArrayAdapter = new ChaptersCardArrayAdapter(getActivity(), R.layout.card_chapter);
+        ChapterCard card;
+        String title, description;
+
+        //Building Layouts: Part 1
+        //card1
+        title = "Introduction";
+        description = "We'll discuss how to create a user interface through a series of short videos and hands-on practice.";
+        card = new ChapterCard(title, description);
+        chaptersCardArrayAdapter.add(card);
+
+        //card2
+        title = "Views";
+        description = "The first thing in Android you need to learn.";
+        card = new ChapterCard(title, description);
+        chaptersCardArrayAdapter.add(card);
+
+        mListView.setAdapter(chaptersCardArrayAdapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getActivity(), DetailQuizActivity.class);
+                i.putExtra("title","userInterface");
+                i.putExtra("quiz",position);
+                startActivity(i);
+            }
+        });
+
+        return view;
     }
 
 }

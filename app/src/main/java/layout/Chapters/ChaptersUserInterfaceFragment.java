@@ -152,7 +152,7 @@ public class ChaptersUserInterfaceFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getActivity(), DetailLessonActivity.class);
                 i.putExtra("title","userInterface");
-                i.putExtra("lesson",position+1);
+                i.putExtra("lesson",position);
                 startActivity(i);
             }
         });

@@ -8,53 +8,54 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.project.is3261.is3261_firebase.Model.Lessons.DetailedLessonAdapter;
-import com.project.is3261.is3261_firebase.Model.Lessons.Lesson;
+import com.project.is3261.is3261_firebase.Model.Quiz.DetailedQuizAdapter;
+import com.project.is3261.is3261_firebase.Model.Quiz.Quiz;
 
 import java.util.ArrayList;
 
-public class DetailLessonActivity extends AppCompatActivity {
+public class DetailQuizActivity extends AppCompatActivity {
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
      */
     private ViewPager mPager;
-    private DetailedLessonAdapter mAdapter;
+    private DetailedQuizAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_lesson);
+        setContentView(R.layout.activity_detail_quiz);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String title = getIntent().getStringExtra("title");
-        int lesson = getIntent().getIntExtra("lesson",0);
+        int quiz = getIntent().getIntExtra("quiz", 0);
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
-        bundle.putInt("lesson", lesson);
+        bundle.putInt("quiz", quiz);
 
-        if(title.equalsIgnoreCase("userinterface")){
+        if (title.equalsIgnoreCase("userinterface")) {
             title = "User Interface";
-        }else if(title.equalsIgnoreCase("userinput")){
+        } else if (title.equalsIgnoreCase("userinput")) {
             title = "User Input";
-        }else if(title.equalsIgnoreCase("multiplescreen")){
+        } else if (title.equalsIgnoreCase("multiplescreen")) {
             title = "Multiple Screens";
-        }else if(title.equalsIgnoreCase("networking")){
+        } else if (title.equalsIgnoreCase("networking")) {
             title = "Networking";
-        }else{
+        } else {
             title = "Data Storage";
         }
         getSupportActionBar().setTitle(title);
 
-        ArrayList<Lesson> mLessonList = new ArrayList<Lesson>();
-        this.mAdapter = new DetailedLessonAdapter(getSupportFragmentManager(),bundle);
+        ArrayList<Quiz> mQuizList = new ArrayList<Quiz>();
+        this.mAdapter = new DetailedQuizAdapter(getSupportFragmentManager(), bundle);
         this.mPager = (ViewPager) findViewById(R.id.pager);
         this.mPager.setAdapter(this.mAdapter);
-        this.mPager.setCurrentItem(lesson);
+        //Toast.makeText(this,"display thisss: "+ quiz,Toast.LENGTH_SHORT).show();
+        this.mPager.setCurrentItem(quiz);
 
         Button button = (Button) findViewById(R.id.previous);
         button.setOnClickListener(new View.OnClickListener() {
@@ -105,5 +106,4 @@ public class DetailLessonActivity extends AppCompatActivity {
         super.onResume();
         this.mPager.setCurrentItem(0);
     }
-
 }

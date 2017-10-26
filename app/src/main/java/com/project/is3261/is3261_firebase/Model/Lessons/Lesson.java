@@ -9,47 +9,41 @@ import android.widget.ImageView;
 public class Lesson {
     public String author;
     public String title;
-    public String description;
+    public String[] description;
     public String url;
     public ImageView urlImageView;
     public String urlToImage;
     public String publishedAt;
+    public String youtube;
+    public String image;
     public int imageId;
+    public boolean isVideoAvailable;
+    public boolean isImageAvailable;
 
-    public static final int USER_INTERFACE_1 = 5;
-    public static final int USER_INTERFACE_2 = 5;
-    public static final int USER_INTERFACE_3 = 5;
-    public static final int USER_INTERFACE_4 = 5;
-    public static final int USER_INTERFACE_5 = 5;
-
-    public static final int USER_INPUT_1 = 5;
-    public static final int USER_INPUT_2 = 5;
-    public static final int USER_INPUT_3 = 5;
-    public static final int USER_INPUT_4 = 5;
-    public static final int USER_INPUT_5 = 5;
-
-    public static final int MULTIPLE_SCREEN_1 = 5;
-    public static final int MULTIPLE_SCREEN_2 = 5;
-    public static final int MULTIPLE_SCREEN_3 = 5;
-    public static final int MULTIPLE_SCREEN_4 = 5;
-    public static final int MULTIPLE_SCREEN_5 = 5;
-
-    public static final int DATA_STORAGE_1= 5;
-    public static final int DATA_STORAGE_2= 5;
-    public static final int DATA_STORAGE_3= 5;
-    public static final int DATA_STORAGE_4= 5;
-    public static final int DATA_STORAGE_5= 5;
-
-    public static final int NETWORKING_1 = 5;
-    public static final int NETWORKING_2 = 5;
-    public static final int NETWORKING_3 = 5;
-    public static final int NETWORKING_4 = 5;
-    public static final int NETWORKING_5 = 5;
-
-
-    public Lesson(String title, String description) {
+    public Lesson(String title, String[] description, boolean isVideoAvailable, boolean isImageAvailable) {
         this.title = title;
         this.description = description;
+        this.isVideoAvailable = isVideoAvailable;
+        this.isImageAvailable = isImageAvailable;
+        //this.urlToImage = urlToImage;
+    }
+
+    public Lesson(String title, String[] description, String youtube, boolean isVideoAvailable, boolean isImageAvailable) {
+        this.title = title;
+        this.description = description;
+        this.isVideoAvailable = isVideoAvailable;
+        this.isImageAvailable = isImageAvailable;
+        this.youtube = youtube;
+        //this.urlToImage = urlToImage;
+    }
+
+    public Lesson(String title, String[] description, String youtube, String image, boolean isVideoAvailable, boolean isImageAvailable) {
+        this.title = title;
+        this.description = description;
+        this.isVideoAvailable = isVideoAvailable;
+        this.isImageAvailable = isImageAvailable;
+        this.youtube = youtube;
+        this.image = image;
         //this.urlToImage = urlToImage;
     }
 
@@ -61,7 +55,13 @@ public class Lesson {
         return title;
     }
 
-    public String getDescription() {
+    public String getYoutube() { return youtube;}
+
+    public boolean isVideoAvailable(){ return isVideoAvailable;}
+
+    public boolean isImageAvailable(){ return isImageAvailable;}
+
+    public String[] getDescription() {
         return description;
     }
 
