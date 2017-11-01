@@ -106,5 +106,62 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Lesson 1-->
+    <string name="hello"> <![CDATA[
+    This <b>Caaaaaa</b> on the spot.
+    ]]></string>
+    <string-array name="lesson_1_array">
+        <item>Congratulations on taking the first step to learning Android! By the end of this course, you’ll know how to make a single-screen Android app with text and images. We’ll discuss how to create a user interface through a series of short videos with lots of hands-on practice.
+ \n In this course, you’ll learn how to use Android Studio, the tool that professional developers use to create apps. The course will take about 3 - 5 hours of dedicated work, but it can widely vary per student, so take your time to learn the concepts.</item>
+        <item><![CDATA[ <div> A view in Android represents a widget, e.g., a button, or a layout manager. All views in Android extend the android.view.View class.
+            The Android SDK provides standard views, for example the Button, TextView and EditText classes.</div>
+            <p>The main packages for views are:</p>
+            <p>android.view for all base classes<p>
+            <p>android.widget for the default widgets<p>
+            Additional libraries provide more complex widgets, for example, RecyclerView.
+        <b>ViewGroups</b>
+        <div>A layout manager is responsible for the layout of itself and its child views. The base class for these layout managers is the android.view.ViewGroup class.
+            Layout managers can be nested to create complex layouts.</div>
+            The most relevant layout managers in Android are:
+            <p>ConstraintLayout - provided by an extra library</p>
+            <p>LinearLayout</p>
+            <p>FrameLayout</p>
+            <p>RelativeLayout</p>
+            <p>GridLayout</p>
+            All layout manager can be configured via attributes. Children can also define attributes which may be evaluated by their parent layout.]]></item>
+        <item>frag 2</item>
+        <item>frag 3</item>
+        <item>frag 4</item>
+        <item>frag 5</item>
+        <item>frag 6</item>
+        <item>frag 7</item>
+        <item>frag 8</item>
+        <item>frag 9</item>
+        <item>frag 10</item>
+        <item>frag 11</item>
+        <item>frag 12</item>
+        <item>frag 13</item>
+        <item>frag 14</item>
+        <item>frag 15</item>
+        <item>frag 16</item>
+        <item>frag 17</item>
+        <item>frag 18</item>
+        <item>frag 19</item>
+        <item>frag 20</item>
+        <item>frag 21</item>
+        <item>frag 22</item>
+        <item>frag 23</item>
+        <item>frag 24</item>
+        <item>frag 25</item>
+        <item>frag 26</item>
+        <item>frag 27</item>
+        <item>frag 28</item>
+        <item>frag 29</item>
+        <item>frag 30</item>
+        <item>frag 31</item>
+        <item>frag 32</item>
+        <item>frag 33</item>
+    </string-array>
+
 
 </resources>

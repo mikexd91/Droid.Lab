@@ -35,97 +35,98 @@ public class LessonGenerator {
 
     private Lesson generateUserInterfaceLesson(int fragNum, int lessonNum) {
         mLessonList = new ArrayList<>();
-        String[] description ={};
-        String[] description1 = {LessonContentChapt1.LESSON_1_DES1, LessonContentChapt1.LESSON_1_DES2, LessonContentChapt1.LESSON_1_DES3};
-        String[] description2 = {LessonContentChapt1.LESSON_2_DES1, LessonContentChapt1.LESSON_2_DES2};
-        String[] description2_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description3 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description3_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description4 = {LessonContentChapt1.LESSON_4_DES1};
-        String[] description4_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description5 = {LessonContentChapt1.LESSON_5_DES1};
-        String[] description5_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description6 = {LessonContentChapt1.LESSON_6_DES1};
-        String[] description6_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description7 = {LessonContentChapt1.LESSON_7_DES1};
-        String[] description7_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description8 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description8_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description9 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description9_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description10 = {LessonContentChapt1.LESSON_10_DES1};
-        String[] description10_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description11 = {LessonContentChapt1.LESSON_11_DES1};
-        String[] description11_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description12 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description12_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description13 = {LessonContentChapt1.LESSON_13_DES1};
-        String[] description13_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description14 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description14_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description15 = {LessonContentChapt1.LESSON_15_DES1};
-        String[] description15_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description16 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description16_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description17 = {LessonContentChapt1.LESSON_17_DES1};
-        String[] description17_1 = {LessonContentChapt1.LESSON_2_DES3};
-        String[] description18 = {LessonContentChapt1.LESSON_18_DES1};
-        String[] description18_1 = {LessonContentChapt1.LESSON_18_DES1};
 
+
+//        String[] description1 = {LessonContentChapt1.LESSON_1_DES1, LessonContentChapt1.LESSON_1_DES2, LessonContentChapt1.LESSON_1_DES3};
+//        String[] description2 = {LessonContentChapt1.LESSON_2_DES1, LessonContentChapt1.LESSON_2_DES2};
+//        String[] description2_1 = {LessonContentChapt1.LESSON_2_BRIEF};
+//        String[] description3 = {LessonContentChapt1.LESSON_2_DES1};
+//        String[] description3_1 = {LessonContentChapt1.LESSON_3_BRIEF};
+//        String[] description4 = {LessonContentChapt1.LESSON_4_DES1};
+//        String[] description4_1 = {LessonContentChapt1.LESSON_4_BRIEF};
+//        String[] description5 = {LessonContentChapt1.LESSON_5_DES1};
+//        String[] description5_1 = {LessonContentChapt1.LESSON_5_BRIEF};
+//        String[] description6 = {LessonContentChapt1.LESSON_6_DES1};
+//        String[] description6_1 = {LessonContentChapt1.LESSON_6_BRIEF};
+//        String[] description7 = {LessonContentChapt1.LESSON_7_DES1};
+//        String[] description7_1 = {LessonContentChapt1.LESSON_7_BRIEF};
+//        String[] description8 = {LessonContentChapt1.LESSON_8_DES1};
+//        String[] description8_1 = {LessonContentChapt1.LESSON_8_BRIEF};
+//        String[] description9 = {LessonContentChapt1.LESSON_9_DES1};
+//        String[] description9_1 = {LessonContentChapt1.LESSON_9_BRIEF};
+//        String[] description10 = {LessonContentChapt1.LESSON_10_DES1};
+//        String[] description10_1 = {LessonContentChapt1.LESSON_10_BRIEF};
+//        String[] description11 = {LessonContentChapt1.LESSON_11_DES1};
+//        String[] description11_1 = {LessonContentChapt1.LESSON_11_BRIEF};
+//        String[] description12 = {LessonContentChapt1.LESSON_12_DES1};
+//        String[] description12_1 = {LessonContentChapt1.LESSON_12_BRIEF};
+//        String[] description13 = {LessonContentChapt1.LESSON_13_DES1};
+//        String[] description13_1 = {LessonContentChapt1.LESSON_13_BRIEF};
+//        String[] description14 = {LessonContentChapt1.LESSON_14_DES1};
+//        String[] description14_1 = {LessonContentChapt1.LESSON_14_BRIEF};
+//        String[] description15 = {LessonContentChapt1.LESSON_15_DES1};
+//        String[] description15_1 = {LessonContentChapt1.LESSON_15_BRIEF};
+//        String[] description16 = {LessonContentChapt1.LESSON_16_DES1};
+//        String[] description16_1 = {LessonContentChapt1.LESSON_16_BRIEF};
+//        String[] description17 = {LessonContentChapt1.LESSON_17_DES1};
+//        String[] description17_1 = {LessonContentChapt1.LESSON_17_BRIEF};
+//        String[] description18 = {LessonContentChapt1.LESSON_18_DES1};
+//        String[] description18_1 = {LessonContentChapt1.LESSON_18_BRIEF};
+//
         switch(lessonNum){
             case 0:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_1_TITLE, description1, LessonContentChapt1.LESSON_1_IMAGE, false, true));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_1_TITLE, LessonContentChapt1.LESSON_1_IMAGE, false, true));
             case 1:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_2_TITLE, description2_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_2_TITLE, description2, LessonContentChapt1.LESSON_2_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_2_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_2_TITLE, LessonContentChapt1.LESSON_2_YOUTUBE, true, false));
             case 2:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_3_TITLE, description3_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_3_TITLE, description3, LessonContentChapt1.LESSON_3_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_3_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_3_TITLE, LessonContentChapt1.LESSON_3_YOUTUBE, true, false));
             case 3:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_4_TITLE, description4_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_4_TITLE, description4, LessonContentChapt1.LESSON_4_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_4_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_4_TITLE, LessonContentChapt1.LESSON_4_YOUTUBE, true, false));
             case 4:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_5_TITLE, description5_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_5_TITLE, description5, LessonContentChapt1.LESSON_5_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_5_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_5_TITLE, LessonContentChapt1.LESSON_5_YOUTUBE, true, false));
             case 5:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_6_TITLE, description6_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_6_TITLE, description6, LessonContentChapt1.LESSON_6_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_6_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_6_TITLE, LessonContentChapt1.LESSON_6_YOUTUBE, true, false));
             case 6:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_7_TITLE, description7_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_7_TITLE, description7, LessonContentChapt1.LESSON_7_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_7_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_7_TITLE, LessonContentChapt1.LESSON_7_YOUTUBE, true, false));
             case 7:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_8_TITLE, description8_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_8_TITLE, description8, LessonContentChapt1.LESSON_8_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_8_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_8_TITLE, LessonContentChapt1.LESSON_8_YOUTUBE, true, false));
             case 8:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_9_TITLE, description9_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_9_TITLE, description9, LessonContentChapt1.LESSON_9_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_9_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_9_TITLE, LessonContentChapt1.LESSON_9_YOUTUBE, true, false));
             case 9:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_10_TITLE, description10_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_10_TITLE, description10, LessonContentChapt1.LESSON_10_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_10_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_10_TITLE, LessonContentChapt1.LESSON_10_YOUTUBE, true, false));
             case 10:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_11_TITLE, description11_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_11_TITLE, description11, LessonContentChapt1.LESSON_11_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_11_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_11_TITLE, LessonContentChapt1.LESSON_11_YOUTUBE, true, false));
             case 11:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_12_TITLE, description12_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_12_TITLE, description12, LessonContentChapt1.LESSON_12_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_12_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_12_TITLE, LessonContentChapt1.LESSON_12_YOUTUBE, true, false));
             case 12:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_13_TITLE, description13_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_13_TITLE, description13, LessonContentChapt1.LESSON_13_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_13_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_13_TITLE, LessonContentChapt1.LESSON_13_YOUTUBE, true, false));
             case 13:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_14_TITLE, description14_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_14_TITLE, description14, LessonContentChapt1.LESSON_14_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_14_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_14_TITLE, LessonContentChapt1.LESSON_14_YOUTUBE, true, false));
             case 14:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_15_TITLE, description15_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_15_TITLE, description15, LessonContentChapt1.LESSON_15_YOUTUBE, true,false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_15_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_15_TITLE, LessonContentChapt1.LESSON_15_YOUTUBE, true,false));
             case 15:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_16_TITLE, description16_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_16_TITLE, description16, LessonContentChapt1.LESSON_16_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_16_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_16_TITLE, LessonContentChapt1.LESSON_16_YOUTUBE, true, false));
             case 16:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_17_TITLE, description17_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_17_TITLE, description17, LessonContentChapt1.LESSON_17_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_17_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_17_TITLE, LessonContentChapt1.LESSON_17_YOUTUBE, true, false));
             case 17:
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_18_TITLE, description18_1, false, false));
-                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_18_TITLE, description18, LessonContentChapt1.LESSON_18_YOUTUBE, true, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_18_TITLE, false, false));
+                mLessonList.add(new Lesson(LessonContentChapt1.LESSON_18_TITLE, LessonContentChapt1.LESSON_18_YOUTUBE, true, false));
 
         }
 

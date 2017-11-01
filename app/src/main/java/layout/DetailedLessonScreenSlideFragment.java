@@ -1,16 +1,18 @@
 package layout;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -79,7 +81,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
 
         if (this.mLesson.isVideoAvailable) {
             if (getUserVisibleHint()) {
-                Toast.makeText(getActivity(), "hello " + this.fragNum + " lesson num: "+ this.lessonNum, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "hello " + this.fragNum + " lesson num: "+ this.lessonNum, Toast.LENGTH_SHORT).show();
                 this.youtubeLink = this.mLesson.getYoutube();
                 youTubePlayerSupportFragment = new YouTubePlayerSupportFragment().newInstance();
                 // Log.v (TAG, "Committing transaction, URL : " + getArguments().getString(KeyConstant.KEY_VIDEO_URL));
@@ -121,6 +123,13 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
 
     }
 
+    private Spanned getSpannedText(String text) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT);
+        } else {
+            return Html.fromHtml(text);
+        }
+    }
     /**
      * The Fragment's UI is a simple text view showing its instance number and
      * an associated list.
@@ -132,26 +141,53 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 container, false);
 
         View tv = layoutView.findViewById(R.id.header1);
-        ((TextView) tv).setText(mLesson.getTitle().toString()+ " - Fragment #" + fragNum);
+        ((TextView) tv).setText(mLesson.getTitle().toString()+ " - Fragment #" + fragNum + " - lesson #" + lessonNum);
 
-        for(int i=0; i< mLesson.getDescription().length;i++){
-            switch(i){
-                case 0:
-                    View tv2 = layoutView.findViewById(R.id.header2);
-                    ((TextView) tv2).setText(mLesson.getDescription()[0]);
-                    tv2.setVisibility(View.VISIBLE);
-                    break;
-                case 1:
-                    View tv3 = layoutView.findViewById(R.id.text1);
-                    ((TextView) tv3).setText(mLesson.getDescription()[1].toString());
-                    tv3.setVisibility(View.VISIBLE);
-                    break;
-                case 2:
-                    View tv4 = layoutView.findViewById(R.id.text2);
-                    ((TextView) tv4).setText(mLesson.getDescription()[2].toString());
-                    tv4.setVisibility(View.VISIBLE);
-            }
+        View tv2 = layoutView.findViewById(R.id.header2);
+        ((TextView) tv2).setText(getSpannedText(getResources().getString(R.string.hello)));
+        tv2.setVisibility(View.VISIBLE);
+
+        View tv1 = layoutView.findViewById(R.id.text1);
+        switch(lessonNum){
+            case 0:
+                String[] mLessonOne = getResources().getStringArray(R.array.lesson_1_array);
+                ((TextView) tv1).setText(getSpannedText(mLessonOne[fragNum].toString()));
+                tv1.setVisibility(View.VISIBLE);
+                //Toast.makeText(getActivity(), "hello " + mLessonOne[fragNum], Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                String[] mLessonTwo = getResources().getStringArray(R.array.lesson_1_array);
+                ((TextView) tv1).setText(getSpannedText(mLessonTwo[fragNum]));
+                tv1.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                String[] mLessonThree = getResources().getStringArray(R.array.lesson_1_array);
+                ((TextView) tv1).setText(getSpannedText(mLessonThree[fragNum]));
+                tv1.setVisibility(View.VISIBLE);
+                break;
         }
+
+
+
+
+//        for(int i=0; i< mLesson.getDescription().length;i++){
+//            switch(i){
+//                case 0:
+//                    View tv2 = layoutView.findViewById(R.id.header2);
+//                    ((TextView) tv2).setText(mLesson.getDescription()[0]);
+//                    tv2.setVisibility(View.VISIBLE);
+//                    break;
+//                case 1:
+//                    View tv3 = layoutView.findViewById(R.id.text1);
+//                    ((TextView) tv3).setText(mLesson.getDescription()[1].toString());
+//                    tv3.setVisibility(View.VISIBLE);
+//                    break;
+//                case 2:
+//                    View tv4 = layoutView.findViewById(R.id.text2);
+//                    ((TextView) tv4).setText(mLesson.getDescription()[2].toString());
+//                    tv4.setVisibility(View.VISIBLE);
+//            }
+//        }
 
         View view = getActivity().findViewById(R.id.lessonProgress);
         if(view instanceof ProgressBar){

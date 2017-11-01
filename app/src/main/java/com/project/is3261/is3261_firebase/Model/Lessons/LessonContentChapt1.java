@@ -24,7 +24,6 @@ public class LessonContentChapt1 {
     public static String LESSON_17_YOUTUBE = "fXUpXWSvLrU";
     public static String LESSON_18_YOUTUBE = "k3IhoMdppwM";
 
-
     // Chapter 1 - Lesson 1: Introduction
     public static String LESSON_1_TITLE = "Introduction\n";
     public static String LESSON_1_DES1 = "Congratulations on taking the first step to learning Android! " +

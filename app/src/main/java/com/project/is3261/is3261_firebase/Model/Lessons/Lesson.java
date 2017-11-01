@@ -20,12 +20,33 @@ public class Lesson {
     public boolean isVideoAvailable;
     public boolean isImageAvailable;
 
+    public Lesson(){
+
+    }
+    public Lesson(String youtube, boolean isVideoAvailable){
+        this.youtube = youtube;
+        this.isVideoAvailable = isVideoAvailable;
+    }
+
     public Lesson(String title, String[] description, boolean isVideoAvailable, boolean isImageAvailable) {
         this.title = title;
         this.description = description;
         this.isVideoAvailable = isVideoAvailable;
         this.isImageAvailable = isImageAvailable;
         //this.urlToImage = urlToImage;
+    }
+
+    public Lesson(String title, boolean isVideoAvailable, boolean isImageAvailable) {
+        this.title = title;
+        this.isVideoAvailable = isVideoAvailable;
+        this.isImageAvailable = isImageAvailable;
+    }
+
+    public Lesson(String title, String youtube, boolean isVideoAvailable, boolean isImageAvailable) {
+        this.title = title;
+        this.isVideoAvailable = isVideoAvailable;
+        this.isImageAvailable = isImageAvailable;
+        this.youtube = youtube;
     }
 
     public Lesson(String title, String[] description, String youtube, boolean isVideoAvailable, boolean isImageAvailable) {
