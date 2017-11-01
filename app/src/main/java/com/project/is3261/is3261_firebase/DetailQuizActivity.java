@@ -37,17 +37,16 @@ public class DetailQuizActivity extends AppCompatActivity {
         bundle.putString("title", title);
         bundle.putInt("quiz", quiz);
 
-        if (title.equalsIgnoreCase("userinterface")) {
+        if (title.equalsIgnoreCase("userInterface")) {
             title = "User Interface";
-        } else if (title.equalsIgnoreCase("userinput")) {
+        } else if (title.equalsIgnoreCase("userInput")) {
             title = "User Input";
-        } else if (title.equalsIgnoreCase("multiplescreen")) {
-            title = "Multiple Screens";
-        } else if (title.equalsIgnoreCase("networking")) {
-            title = "Networking";
-        } else {
-            title = "Data Storage";
+        } else if (title.equalsIgnoreCase("multiscreen")) {
+            title = "Multiscreen";
+        } else if (title.equalsIgnoreCase("extraQuestions")) {
+            title = "Extra Questions";
         }
+
         getSupportActionBar().setTitle(title);
 
         ArrayList<Quiz> mQuizList = new ArrayList<Quiz>();

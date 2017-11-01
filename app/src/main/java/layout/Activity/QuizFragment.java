@@ -96,16 +96,24 @@ public class QuizFragment extends Fragment {
         ChapterCard card;
         String title, description;
 
-        //Building Layouts: Part 1
-        //card1
-        title = "Introduction";
-        description = "We'll discuss how to create a user interface through a series of short videos and hands-on practice.";
+        //Quiz cards
+        title = "User Interface";
+        description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
-        //card2
-        title = "Views";
-        description = "The first thing in Android you need to learn.";
+        title = "User Input";
+        description = "";
+        card = new ChapterCard(title, description);
+        chaptersCardArrayAdapter.add(card);
+
+        title = "Multiscreen";
+        description = "";
+        card = new ChapterCard(title, description);
+        chaptersCardArrayAdapter.add(card);
+
+        title = "Extra Questions";
+        description = "";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
 
@@ -114,9 +122,28 @@ public class QuizFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent i = new Intent(getActivity(), DetailQuizActivity.class);
-                i.putExtra("title","userInterface");
-                i.putExtra("quiz",position);
+
+                switch (position) {
+                    case 0:
+                        i.putExtra("title","userInterface");
+                        i.putExtra("quiz",position);
+                        break;
+                    case 1:
+                        i.putExtra("title","userInput");
+                        i.putExtra("quiz",position);
+                        break;
+                    case 2:
+                        i.putExtra("title","multiscreen");
+                        i.putExtra("quiz",position);
+                        break;
+                    case 3:
+                        i.putExtra("title","extraQuestions");
+                        i.putExtra("quiz",position);
+                        break;
+                }
+
                 startActivity(i);
             }
         });

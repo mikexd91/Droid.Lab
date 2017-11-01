@@ -55,7 +55,7 @@ public class DetailedQuizSlideFragment extends Fragment {
         Bundle args = new Bundle();
         args.putInt("val", val);
         args.putString("title", QuizType);
-        args.putInt("Quiz", QuizNum);
+        args.putInt("quiz", QuizNum);
         mQuizFragment.setArguments(args);
         return mQuizFragment;
     }
