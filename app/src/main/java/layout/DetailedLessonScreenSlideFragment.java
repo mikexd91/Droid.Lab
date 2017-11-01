@@ -4,11 +4,11 @@ package layout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +25,8 @@ import com.project.is3261.is3261_firebase.Model.Lessons.YoutubeHelper;
 import com.project.is3261.is3261_firebase.R;
 
 import java.util.ArrayList;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,7 +70,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         super.onCreate(savedInstanceState);
 
         this.fragNum = getArguments() != null ? getArguments().getInt("val") : 0;
-        Toast.makeText(getActivity(), "hello " + this.fragNum, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity(), "hello " + this.fragNum, Toast.LENGTH_SHORT).show();
         this.lessonType = getArguments() != null ? getArguments().getString("title") : "userInterface";
         this.lessonNum = getArguments() != null ? getArguments().getInt("lesson") : 1;
         LessonGenerator newLesson = new LessonGenerator(fragNum, lessonType, lessonNum);
@@ -76,16 +78,16 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         this.mLessonList = newLesson.getLessonList();
 
         if (this.mLesson.isVideoAvailable) {
-            this.youtubeLink = this.mLesson.getYoutube();
-            youTubePlayerSupportFragment = new YouTubePlayerSupportFragment().newInstance();
             if (getUserVisibleHint()) {
+                Toast.makeText(getActivity(), "hello " + this.fragNum + " lesson num: "+ this.lessonNum, Toast.LENGTH_SHORT).show();
+                this.youtubeLink = this.mLesson.getYoutube();
+                youTubePlayerSupportFragment = new YouTubePlayerSupportFragment().newInstance();
                 // Log.v (TAG, "Committing transaction, URL : " + getArguments().getString(KeyConstant.KEY_VIDEO_URL));
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame_fragment, youTubePlayerSupportFragment).commit();
                 youTubePlayerSupportFragment.initialize(YoutubeHelper.getApiKey(), this);
             }
         }
-
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
                 // Write a message to the database
@@ -103,13 +105,15 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 }
             }
 
+
     }
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         this.youTubePlayer = youTubePlayer;
         this.youTubePlayer.loadVideo(youtubeLink);
-        this.youTubePlayer.play();
+        this.youTubePlayer.pause();
+        this.youTubePlayer.setShowFullscreenButton(false);
     }
 
     @Override
@@ -127,31 +131,36 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         View layoutView = inflater.inflate(R.layout.fragment_detailed_lesson_screen_slide,
                 container, false);
 
-        View tv = layoutView.findViewById(R.id.header2);
-        ((TextView) tv).setText("Fragment #" + fragNum);
-        View tv1 = layoutView.findViewById(R.id.text2);
-        ((TextView) tv1).setText(mLesson.getTitle().toString());
+        View tv = layoutView.findViewById(R.id.header1);
+        ((TextView) tv).setText(mLesson.getTitle().toString()+ " - Fragment #" + fragNum);
 
         for(int i=0; i< mLesson.getDescription().length;i++){
             switch(i){
+                case 0:
+                    View tv2 = layoutView.findViewById(R.id.header2);
+                    ((TextView) tv2).setText(mLesson.getDescription()[0]);
+                    tv2.setVisibility(View.VISIBLE);
+                    break;
                 case 1:
-                    View tv2 = layoutView.findViewById(R.id.text3);
-                    ((TextView) tv2).setText(Html.fromHtml(mLesson.getDescription()[0]));
-                    ((TextView) tv2).setMovementMethod(LinkMovementMethod.getInstance());
+                    View tv3 = layoutView.findViewById(R.id.text1);
+                    ((TextView) tv3).setText(mLesson.getDescription()[1].toString());
+                    tv3.setVisibility(View.VISIBLE);
                     break;
                 case 2:
-                    View tv3 = layoutView.findViewById(R.id.header4);
-                    ((TextView) tv3).setText(mLesson.getDescription()[1].toString());
-                    break;
-                case 3:
-                    View tv4 = layoutView.findViewById(R.id.text4);
+                    View tv4 = layoutView.findViewById(R.id.text2);
                     ((TextView) tv4).setText(mLesson.getDescription()[2].toString());
+                    tv4.setVisibility(View.VISIBLE);
             }
+        }
+
+        View view = getActivity().findViewById(R.id.lessonProgress);
+        if(view instanceof ProgressBar){
+            ProgressBar progress = (ProgressBar) view;
+            progress.setProgress(this.fragNum);
         }
 
         //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
         return layoutView;
     }
@@ -159,7 +168,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (!isVisibleToUser && youTubePlayer != null) {
-            //Log.v(TAG, "Releasing youtube player, URL : " + getArguments().getString(KeyConstant.KEY_VIDEO_URL));
+            Log.v(TAG, "Releasing youtube player, URL : " + this.youtubeLink);
             youTubePlayer.release();
             FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
             transaction.remove(youTubePlayerSupportFragment).commit();
