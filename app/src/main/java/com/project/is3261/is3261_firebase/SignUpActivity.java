@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
     //defining view objects
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private EditText mNameView;
     private View mProgressView;
 
     private FirebaseAuth mAuth;
@@ -65,6 +67,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         // Set up the login form.
+        mNameView =  (EditText) findViewById(R.id.editTextName);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.editTextEmail);
         populateAutoComplete();
         mPasswordView = (EditText) findViewById(R.id.editTextPassword);
@@ -86,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
             }
         });
         mProgressView = findViewById(R.id.login_progress);
+        mProgressView.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -108,6 +112,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
     public void onClick_SignIn(View view){
         Intent myIntent = new Intent(this, MainActivity.class);
         startActivity(myIntent);
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
     private void populateAutoComplete() {
@@ -161,8 +166,17 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
         // Store values at the time of the login attempt.
         final String email = mEmailView.getText().toString();
         final String password = mPasswordView.getText().toString();
+        final String name = mNameView.getText().toString();
         boolean cancel = false;
         View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_no_password));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
         // Check for a valid password, if the user entered one.
         if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_no_password));
@@ -216,6 +230,10 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 if (user != null) {
                                     // Name, email address, and profile photo Url
+                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(name).build();
+                                    user.updateProfile(profileUpdates);
+
                                     String name = user.getDisplayName();
                                     String email = user.getEmail();
                                     Uri photoUrl = user.getPhotoUrl();

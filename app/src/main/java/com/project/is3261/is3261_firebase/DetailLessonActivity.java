@@ -21,7 +21,8 @@ public class DetailLessonActivity extends AppCompatActivity {
      */
     private ViewPager mPager;
     private DetailedLessonAdapter mAdapter;
-
+    private int lesson;
+    private String titleX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +33,11 @@ public class DetailLessonActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String title = getIntent().getStringExtra("title");
-        int lesson = getIntent().getIntExtra("lesson",0);
+        titleX =title;
+        lesson = getIntent().getIntExtra("lesson",0);
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
         bundle.putInt("lesson", lesson);
-
         if(title.equalsIgnoreCase("userinterface")){
             title = "User Interface";
         }else if(title.equalsIgnoreCase("userinput")){
@@ -97,7 +98,11 @@ public class DetailLessonActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.mPager.setCurrentItem(0);
+        if(this.lesson==0){
+            this.mPager.setCurrentItem(this.lesson);
+        }else{
+            this.mPager.setCurrentItem(this.lesson*2-1);
+        }
     }
 
 }

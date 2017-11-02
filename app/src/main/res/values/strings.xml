@@ -106,62 +106,197 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- Lesson 1-->
-    <string name="hello"> <![CDATA[
-    This <b>Caaaaaa</b> on the spot.
-    ]]></string>
+    <!--lesson 1-->
     <string-array name="lesson_1_array">
-        <item>Congratulations on taking the first step to learning Android! By the end of this course, you’ll know how to make a single-screen Android app with text and images. We’ll discuss how to create a user interface through a series of short videos with lots of hands-on practice.
- \n In this course, you’ll learn how to use Android Studio, the tool that professional developers use to create apps. The course will take about 3 - 5 hours of dedicated work, but it can widely vary per student, so take your time to learn the concepts.</item>
-        <item><![CDATA[ <div> A view in Android represents a widget, e.g., a button, or a layout manager. All views in Android extend the android.view.View class.
+        <item><![CDATA[ Congratulations on taking the first step to learning Android! By the end of this course, you’ll know how to make a <b>single-screen Android app </b> with text and images. We’ll discuss how to create a user interface through a series of short videos with lots of hands-on practice.
+
+      <p>In this course, you’ll learn how to use <b>Android Studio</b>, the tool that professional developers use to create apps. The course will take about 3 - 5 hours of dedicated work, but it can widely vary per student, so take your time to learn the concepts. </p> ]]></item>
+        <item><![CDATA[ <div> A <b>view</b> in Android represents a <b>widget</b>, e.g., a button, or a layout manager. All views in Android extend the <i>android.view.View class</i>.
             The Android SDK provides standard views, for example the Button, TextView and EditText classes.</div>
+
             <p>The main packages for views are:</p>
-            <p>android.view for all base classes<p>
-            <p>android.widget for the default widgets<p>
-            Additional libraries provide more complex widgets, for example, RecyclerView.
-        <b>ViewGroups</b>
+            <i>android.view for all base classes </i> and <i>android.widget for the default widgets</i>
+            Additional libraries provide more complex widgets, for example, RecyclerView.<br />
+
+        <p><b>ViewGroups</b></p>
         <div>A layout manager is responsible for the layout of itself and its child views. The base class for these layout managers is the android.view.ViewGroup class.
-            Layout managers can be nested to create complex layouts.</div>
-            The most relevant layout managers in Android are:
-            <p>ConstraintLayout - provided by an extra library</p>
-            <p>LinearLayout</p>
-            <p>FrameLayout</p>
-            <p>RelativeLayout</p>
-            <p>GridLayout</p>
+            Layout managers can be nested to create complex layouts.
+
+            The most relevant layout managers in Android are:</div>
+            • ConstraintLayout - provided by an extra library<br />
+            • LinearLayout<br />
+            • FrameLayout<br />
+            • RelativeLayout<br />
+            • GridLayout<br />
+
             All layout manager can be configured via attributes. Children can also define attributes which may be evaluated by their parent layout.]]></item>
-        <item>frag 2</item>
-        <item>frag 3</item>
-        <item>frag 4</item>
-        <item>frag 5</item>
-        <item>frag 6</item>
-        <item>frag 7</item>
-        <item>frag 8</item>
-        <item>frag 9</item>
-        <item>frag 10</item>
-        <item>frag 11</item>
-        <item>frag 12</item>
-        <item>frag 13</item>
-        <item>frag 14</item>
-        <item>frag 15</item>
-        <item>frag 16</item>
-        <item>frag 17</item>
-        <item>frag 18</item>
-        <item>frag 19</item>
-        <item>frag 20</item>
-        <item>frag 21</item>
-        <item>frag 22</item>
-        <item>frag 23</item>
-        <item>frag 24</item>
-        <item>frag 25</item>
-        <item>frag 26</item>
-        <item>frag 27</item>
-        <item>frag 28</item>
-        <item>frag 29</item>
-        <item>frag 30</item>
-        <item>frag 31</item>
-        <item>frag 32</item>
-        <item>frag 33</item>
+        <item><![CDATA[ The first thing in Android you need to learn is something called Views. We used a lot of new words in this video!
+            • Layout <br/>
+            • User Interface <br/>
+            • TextView<br/>
+            • ImageView<br/>
+            • Button<br/>
+            • Camel case<br/>
+
+            Don\'t worry, you don\'t have to memorize them. Believe it or not, professional developers don\'t memorize everything looking up information is a key part of the job! You can look up their definitions in the Vocab Glossary.]]></item>
+        <item><![CDATA[ 4 TextView]]></item>
+        <item><![CDATA[ 4 Words we used in this video:
+            • Android Studio <br/>
+            • Device <br/>
+            • Density-Independent Pixels<br/>
+
+            <div> What does Density-Independent Pixel actually mean? You might be familiar with a pixel, which is a small illuminated area on a screen. Screens are essentially made up of hundreds of thousands of these pixels.
+            So what is a "density independent" pixel? Well, better screens will often have more pixels in the same amount of space. The number of pixels in a fixed space is known as the screen\'s pixel density. In case you\'re wondering, 48dp translates to approximately 9mm in physical size.</div>]]></item>
+        <item><![CDATA[ XML is a software and hardware independent tool for storing and transporting data.
+            • XML stands for eXtensible Markup Language <br/>
+            • XML is a markup language much like HTML <br/>
+            • XML was designed to store and transport data <br/>
+            • XML was designed to be self-descriptive <br/>]]></item>
+        <item><![CDATA[ 3  Here are the words we introduced in this video:
+            • XML element <br/>
+            • Tag <br/>
+            • Self-Closing Tags <br/>
+            • Attributes <br/>
+            • Syntax <br/>]]></item>
+        <item><![CDATA[ 5 Setting a View\'s size to wrap_content will force it to expand only far enough to contain the values (or child controls) it contains. <br />
+         For controls -- like text boxes (TextView) or images (ImageView) -- this will wrap the text or image being shown.  <br />
+          For layout elements it will resize the layout to fit the controls / layouts added as its children. It\'s roughly the equivalent of setting a Windows Form Control\'s Autosize property to True.]]></item>
+        <item><![CDATA[ 5 Words we used in this video:
+         • Hard coding <br/>
+         • wrap_content <br/>]]></item>
+        <item><![CDATA[ 7 TextView widget display text on android application. we can set or change TextView font size statically by declarative syntax in xml layout file or programmatically at run time in java file. even we can use an xml file source to define font size. ]]></item>
+        <item><![CDATA[ 7 For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip New term we used in this video:
+         • Scale-Independent Pixels <br/>]]></item>
+        <item><![CDATA[  ]]></item>
+        <item><![CDATA[ For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip
+New term we used in this video:
+	Scale-Independent Pixels]]></item>
+        <item><![CDATA[ TextView Text Color]]></item>
+        <item><![CDATA[ Textview text color]]></item>
+        <item><![CDATA[ Simple ImageView]]></item>
+        <item><![CDATA[ Simple ImageView]]></item>
+        <item><![CDATA[ ViewGroups]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
+         • ViewGroups<br/>
+         • Root View <br/>
+         • Parent <br/>
+         • Child <br/>
+         • Sibling <br/>]]></item>
+        <item><![CDATA[ Types of ViewGroups]]></item>
+        <item><![CDATA[ Link to the code. Here are the words we introduced in this video:
+	     • LinearLayout <br/>
+	     • RelativeLayout <br/>]]></item>
+        <item><![CDATA[ LinearLayout]]></item>
+        <item><![CDATA[ LinearLayout]]></item>
+        <item><![CDATA[ Width and Height]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
+         • match_parent <br/>
+         • ViewGroup layout parameter <br/>]]></item>
+        <item><![CDATA[ Evenly Spacing Out Views]]></item>
+        <item><![CDATA[ Evenly Spacing Out Views]]></item>
+        <item><![CDATA[ Layout Weight]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
+         • layout_weight <br/>]]></item>
+        <item><![CDATA[ Relative Layout]]></item>
+        <item><![CDATA[ Relative Layout]]></item>
+        <item><![CDATA[ Relative to Other Views]]></item>
+        <item><![CDATA[ Relative to Other Views]]></item>
+        <item><![CDATA[ Padding vs Margin]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
+	     • Padding <br/>
+	     • Margin <br/>]]></item>
+        <item><![CDATA[ <b>Congratulation</b> on completing the first chapter on User Interface.
+        You can proceed to the Quiz section to test your skills or move on to the next chapter on User Input.
+        See Ya! ]]></item>
     </string-array>
 
 
+    <!--lesson 2-->
+    <string-array name="lesson_2_array">
+        <item><![CDATA[ 1 Welcome back! We’re excited that you want to move onto the next step of learning Android. <br />
+
+                By the end of this course, you’ll be able to make an Android app with buttons and text fields that a user can interact with. Together we’ll make the Just Java app, which allows a user to fill out a form to order coffee.]]></item>
+        <item><![CDATA[ 2 Plan How to build the layout ]]></item>
+        <item><![CDATA[ 2 video Plan How to build the layout ]]></item>
+        <item><![CDATA[ 3 Build layout ]]></item>
+        <item><![CDATA[ 3 video Build layout ]]></item>
+        <item><![CDATA[ 4 Do something when the button is clicked ]]></item>
+        <item><![CDATA[ 4 video Here are the words we introduced in this video:
+         •  Programming language <br/>
+         •	Java <br/>
+         •	Event-driven programming <br/>
+         •	Activity <br/>
+         •	Comments <br/>
+         •	Package name <br/>
+         •	Import statements <br/>
+         •	Class name <br/>
+         •	onCreate() <br/>  ]]></item>
+        <item><![CDATA[ 5 Modifying First Lines of Java Code ]]></item>
+        <item><![CDATA[ 5 video Here are the words we introduced in this video:
+         •  onClick <br/>
+         •	Execute <br/>
+         •	Method <br/>
+         •	Calling <br/>
+         •	Expressions <br/> ]]></item>
+        <item><![CDATA[ 6 Add TextViews for Price]]></item>
+        <item><![CDATA[ 6 video Make sure Auto Import is on:
+        •	For Windows, go to File > Settings > Editor > General > Auto Import
+        •	For Mac, go to Android Studio > Preferences > Editor > General > Auto Import
+        Check all of the following options:
+        •	Show import popup
+        •	Optimize imports on the fly
+        •	Add unambiguous imports on the fly
+        •	Insert imports on paste → All
+        Here are the words we introduced in this video:
+        •	Gist
+        •	Snippet ]]></item>
+        <item><![CDATA[ 7 Debugging a Crash]]></item>
+        <item><![CDATA[ 7 video DDMS stands for Dalvik Debug Monitor Server, and is a tool in Android to help you debug your app.
+        Here are the words we introduced in this video:
+        •	Debug
+        •	Crashes
+        •	Compile time error
+        •	Runtime error
+        •	System log
+        •	Stacktrace ]]></item>
+        <item><![CDATA[ 8 Hook Up two buttons]]> </item>
+        <item><![CDATA[ 8 video Hook up two buttons]]></item>
+        <item><![CDATA[ 9 Debug Mode in Android studio]]></item>
+        <item><![CDATA[ 9 video Here are the words we introduced in this video:
+        •	Debugger ]]></item>
+        <item><![CDATA[ 10 Nested ViewGroups]]></item>
+        <item><![CDATA[ 10 video ]]></item>
+        <item><![CDATA[ 11 View Hierarchy Diagrams]]></item>
+        <item><![CDATA[ 11 video Here are the words we introduced in this video:
+        •	Nested ViewGroups ]]></item>
+        <item><![CDATA[ 12 Build the quantity picker layout]]></item>
+        <item><![CDATA[ 12 video]]></item>
+        <item><![CDATA[ 13 Resources]]></item>
+        <item><![CDATA[ 13 video ]]></item>
+        <item><![CDATA[ 14 Resources IDs]]></item>
+        <item><![CDATA[ 14 video ]]></item>
+        <item><![CDATA[ 15 From XML to Java]]></item>
+        <item><![CDATA[ 15 video ]]></item>
+        <item><![CDATA[ 16 Inheriting Behaviour]]></item>
+        <item><![CDATA[ 16 video]]></item>
+        <item><![CDATA[ 17 Find Views By Id]]></item>
+        <item><![CDATA[ 17 video ]]></item>
+        <item><![CDATA[ 18 Casting with findViewById]]> </item>
+        <item><![CDATA[ 18 video ]]></item>
+        <item><![CDATA[ 19 Practice with Intents]]></item>
+        <item><![CDATA[ 19 video For students using the emulator: This is one of the few pieces of the course that does not work on an emulator, so we suggest you watch the answer video and move on, or return to this quiz when you have an android device to develop with.
+]]></item>
+        <item><![CDATA[ 20 Localisation]]></item>
+        <item><![CDATA[ 20 video Localisation]]></item>
+        <item><![CDATA[ 21 Styles]]></item>
+        <item><![CDATA[ 21 video Note that styles.xml is in a resource folder. This means you can override the style and provide different attributes on differently sized devices.
+You just need to create a new styles.xml file, within the appropriate values folder.
+For example, if you wanted a HeaderTextStyle to show bigger text if the user is on a tablet with the smaller side’s screen width of 600 dp or greater, you could save a new version of the HeaderTextStyle in res/values-sw600dp/styles.xml folder.
+]]></item>
+        <item><![CDATA[ 22 themes]]></item>
+        <item><![CDATA[ 22 video]]></item>
+        <item><![CDATA[ <b>Congratulation</b> on completing the second chapter on User Input.
+        You can proceed to the Quiz section to test your skills or move on to the next chapter on User Input.
+        See Ya! ]]></item>
+    </string-array>
 </resources>

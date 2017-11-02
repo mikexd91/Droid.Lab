@@ -3,7 +3,8 @@ package com.project.is3261.is3261_firebase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import layout.Chapters.ChaptersDataStorageFragment;
 import layout.Chapters.ChaptersMultiscreenFragment;
@@ -17,9 +18,11 @@ public class ChaptersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapters);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         String title = getIntent().getStringExtra("title");
-        Toast.makeText(this, title,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, title,Toast.LENGTH_SHORT).show();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         if (title.equals("User Interface")) {
@@ -44,5 +47,20 @@ public class ChaptersActivity extends AppCompatActivity {
         }
 
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+            super.onBackPressed();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

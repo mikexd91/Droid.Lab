@@ -70,8 +70,8 @@ public class QuizFragment extends Fragment {
 
                             String isComplete = snap.child("isComplete").getValue().toString();
                             Log.d(TAG, "Value is: " + isComplete);
-                            String fragNum = snap.child("fragNum").getValue().toString();
-                            Log.d(TAG, "fragment: " + fragNum);
+//                            String fragNum = snap.child("fragNum").getValue().toString();
+                   //         Log.d(TAG, "fragment: " + fragNum);
                         }
                     }
                     //Log.d(TAG, "Value is: " + value);

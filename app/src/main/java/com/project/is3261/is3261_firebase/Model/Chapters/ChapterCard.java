@@ -8,6 +8,7 @@ public class ChapterCard {
 
     private String title;
     private String description;
+    private Boolean isCompleted;
 
     public ChapterCard() {
     }
@@ -15,7 +16,12 @@ public class ChapterCard {
     public ChapterCard(String title, String description) {
         this.title = title;
         this.description = description;
+        this.isCompleted = false;
     }
+
+    public Boolean getIsCompleted() { return isCompleted;}
+
+    public void setIsCompleted(Boolean isCompleted) { this.isCompleted = isCompleted;}
 
     public String getTitle() {
         return title;

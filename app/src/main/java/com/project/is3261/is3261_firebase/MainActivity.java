@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
             }
         });
         mProgressView = findViewById(R.id.login_progress);
-
+        mProgressView.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     public void onClick_SignUp(View view){
         Intent myIntent = new Intent(this, SignUpActivity.class);
         startActivity(myIntent);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
 
     private void populateAutoComplete() {
@@ -193,9 +194,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
+            //showProgress(true);
             mProgressView.setVisibility(View.VISIBLE);
-
+            mPasswordView.bringToFront();
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -211,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                 Toast.makeText(MainActivity.this, R.string.auth_failed,
                                         Toast.LENGTH_SHORT).show();
                             }else{
+                                mProgressView.setVisibility(View.VISIBLE);
                                 SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
                                 editor.putString("email",email);
                                 editor.putString("password",password);
@@ -235,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                     i.putExtra("uid", uid);
                                     startActivity(i);
                                     overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                                    mProgressView.setVisibility(View.GONE);
+                                    //mProgressView.setVisibility(View.GONE);
                                 }
 
 
