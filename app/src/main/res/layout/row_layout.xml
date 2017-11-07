@@ -34,7 +34,7 @@
             android:layout_marginLeft="10dp"
             android:text="Title"
             android:textAppearance="@style/CardView.Dark"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/author"
@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Description"
-            android:textSize="20sp" />
+            android:fontFamily="sans-serif"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/url"

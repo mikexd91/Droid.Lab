@@ -50,11 +50,18 @@ public class CustomAdapterLesson extends RecyclerView.Adapter<CustomViewHolder> 
         customViewHolder.description.setText(feedItem.getDescription());
         //customViewHolder.url.setText(feedItem.getUrl());
         //customViewHolder.publishedAt.setText(feedItem.getPublishedAt());
-
+        if(feedItem.getIsCompleted()){
+            customViewHolder.imageView.setVisibility(View.VISIBLE);
+        }
 //        if(i>1){
 //            customViewHolder.cv.setCardBackgroundColor(GRAY);
 //        }
 
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override

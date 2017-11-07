@@ -36,6 +36,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
     private EditText mPasswordView;
     private EditText mNameView;
     private View mProgressView;
-
+    private FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "SignUpActivity";
@@ -242,6 +243,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
                                     // authenticate with your backend server, if you have one. Use
                                     // FirebaseUser.getToken() instead.
                                     String uid = user.getUid();
+
 
                                     Intent i = new Intent(SignUpActivity.this, HomeActivity.class);
                                     i.putExtra("name",name);

@@ -20,7 +20,7 @@ public class QuizGenerator {
             this.mQuiz = generateUserInterface(fragNum, quizNum);
         } else if (quizType.equals("userInput")) {
             this.mQuiz = generateUserInput(fragNum, quizNum);
-        } else if (quizType.equals("multiscreen")) {
+        } else if (quizType.equals("multipleScreen")) {
             this.mQuiz = generateMultiscreen(fragNum, quizNum);
         } else if (quizType.equals("extraQuestions")) {
             this.mQuiz = generateExtra(fragNum, quizNum);

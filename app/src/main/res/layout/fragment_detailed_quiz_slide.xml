@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:id="@+id/header1"
+                android:id="@+id/header2"
                 android:text="hello" />
 
             <FrameLayout
@@ -32,13 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/header2"
-                android:text="hello" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -59,13 +52,6 @@
 
             </LinearLayout>
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/header3"
-                android:text="hello" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -86,13 +72,6 @@
 
             </LinearLayout>
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/header4"
-                android:text="hello" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -113,13 +92,6 @@
 
             </LinearLayout>
 
-            <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/header5"
-                android:text="hello" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -141,16 +113,21 @@
             </LinearLayout>
 
             <TextView style="?android:textAppearanceMedium"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="right"
                 android:lineSpacingMultiplier="1.2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textResult"
+                android:text="hereee"
                 android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/buttonSubmitAns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:text="Submit"/>
 
         </android.support.v7.widget.LinearLayoutCompat>

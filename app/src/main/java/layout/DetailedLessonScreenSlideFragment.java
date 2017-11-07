@@ -72,7 +72,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         super.onCreate(savedInstanceState);
 
         this.fragNum = getArguments() != null ? getArguments().getInt("val") : 0;
-       // Toast.makeText(getActivity(), "hello " + this.fragNum, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getActivity(), "hello " + this.fragNum, Toast.LENGTH_SHORT).show();
         this.lessonType = getArguments() != null ? getArguments().getString("title") : "userInterface";
         this.lessonNum = getArguments() != null ? getArguments().getInt("lesson") : 1;
         LessonGenerator newLesson = new LessonGenerator(fragNum, lessonType, lessonNum);
@@ -90,27 +90,29 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 youTubePlayerSupportFragment.initialize(YoutubeHelper.getApiKey(), this);
             }
         }
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Write a message to the database
-                database = FirebaseDatabase.getInstance();
-
-                myRef = database.getReference()
-                        .child("users")
-                        .child(user.getUid())
-                        .child("lesson")
-                        .child(lessonType)
-                        .child(String.valueOf(lessonNum));
-//                myRef.child("fragNum").setValue(String.valueOf(fragNum));
-//                myRef.child("isComplete").setValue("false");
-
-                if (this.lessonNum == 0 & this.fragNum==0) {
-                    myRef.child("isComplete").setValue("true");
-                }else if(this.lessonNum != 0 & this.fragNum >= 2 ){
-                    myRef.child("isComplete").setValue("true");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Write a message to the database
+            database = FirebaseDatabase.getInstance();
+            myRef = database.getReference()
+                    .child("users")
+                    .child(user.getUid())
+                    .child("lesson")
+                    .child(lessonType);
+            if (this.fragNum == 0) {
+                myRef.child(String.valueOf(this.fragNum)).child("isComplete").setValue("true");
+            } else if ((this.fragNum+1) % 2 == 0) {
+                if (this.lessonNum == 17 && this.lessonType.equalsIgnoreCase("userInterface")) {
+                    myRef.child(String.valueOf(this.lessonNum)).child("isComplete").setValue("true");
+                } else if (this.lessonNum == 21 && this.lessonType.equalsIgnoreCase("userInput")) {
+                    myRef.child(String.valueOf(this.lessonNum)).child("isComplete").setValue("true");
+                } else {
+                    int lesson = (this.fragNum+1) / 2;
+                    Log.d("hello","this is the lesson number "+ lesson);
+                    myRef.child(String.valueOf(lesson)).child("isComplete").setValue("true");
                 }
-
             }
+        }
 
 
     }
@@ -135,6 +137,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
             return Html.fromHtml(text);
         }
     }
+
     /**
      * The Fragment's UI is a simple text view showing its instance number and
      * an associated list.
@@ -146,10 +149,10 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 container, false);
 
         View tv = layoutView.findViewById(R.id.header1);
-        ((TextView) tv).setText(mLesson.getTitle().toString()+ " - Fragment #" + fragNum + " - lesson #" + lessonNum);
+        ((TextView) tv).setText(mLesson.getTitle().toString() + " - Fragment #" + fragNum + " - lesson #" + lessonNum);
 
         View tv1 = layoutView.findViewById(R.id.text1);
-        switch(lessonType){
+        switch (lessonType) {
             case "userInterface":
                 String[] mLessonOne = getResources().getStringArray(R.array.lesson_1_array);
                 ((TextView) tv1).setText(getSpannedText(mLessonOne[fragNum].toString()));
@@ -164,7 +167,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         }
 
         View view = getActivity().findViewById(R.id.lessonProgress);
-        if(view instanceof ProgressBar){
+        if (view instanceof ProgressBar) {
             ProgressBar progress = (ProgressBar) view;
             setMax(progress);
             progress.setProgress(this.fragNum);
@@ -192,8 +195,8 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
         }
     }
 
-    private void setMax(ProgressBar progressBar){
-        switch(this.lessonType) {
+    private void setMax(ProgressBar progressBar) {
+        switch (this.lessonType) {
             case "userInterface":
                 progressBar.setMax(35);
                 break;

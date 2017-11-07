@@ -5,8 +5,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.project.is3261.is3261_firebase.Model.Quiz.DetailedQuizAdapter;
 import com.project.is3261.is3261_firebase.Model.Quiz.Quiz;
@@ -56,19 +54,6 @@ public class DetailQuizActivity extends AppCompatActivity {
         //Toast.makeText(this,"display thisss: "+ quiz,Toast.LENGTH_SHORT).show();
         this.mPager.setCurrentItem(quiz);
 
-        Button button = (Button) findViewById(R.id.previous);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-            }
-        });
-        button = (Button) findViewById(R.id.next);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mPager.setCurrentItem(mPager.getCurrentItem() + 1);
-            }
-        });
-
     }
 
 
@@ -103,6 +88,5 @@ public class DetailQuizActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.mPager.setCurrentItem(0);
     }
 }

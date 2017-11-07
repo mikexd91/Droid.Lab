@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.project.is3261.is3261_firebase.R;
 
@@ -67,17 +65,17 @@ public class ChaptersCardArrayAdapter extends ArrayAdapter<ChapterCard> {
 
         ChapterCard card = getItem(position);
 
-        if (card != null) {
-            TextView title = (TextView) row.findViewById(R.id.title);
-            TextView description = (TextView) row.findViewById(R.id.description);
-            ImageView completion = (ImageView) row.findViewById(R.id.checkbox2);
-            if(card.getIsCompleted()){
-                completion.setVisibility(View.VISIBLE);
-            }
-            title.setText(card.getTitle());
-            description.setText(card.getDescription());
-
-        }
+//        if (card != null) {
+//            TextView title = (TextView) row.findViewById(R.id.title);
+//            TextView description = (TextView) row.findViewById(R.id.description);
+//            ImageView completion = (ImageView) row.findViewById(R.id.checkbox2);
+//            if(card.getIsCompleted()){
+//                completion.setVisibility(View.VISIBLE);
+//            }
+//            title.setText(card.getTitle());
+//            description.setText(card.getDescription());
+//
+//        }
 
         return row;
     }

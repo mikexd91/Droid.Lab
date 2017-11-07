@@ -1,15 +1,16 @@
 package layout;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -71,9 +72,9 @@ public class DetailedQuizSlideFragment extends Fragment {
         this.QuizType = getArguments() != null ? getArguments().getString("title") : "userInterface";
         this.QuizNum = getArguments() != null ? getArguments().getInt("quiz") : 1;
 
-        Toast.makeText(getActivity(), "fragNum " + this.fragNum
-                                    + "QuizType " + this.QuizType
-                                    + "QuizNum " + this.QuizNum, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity(), "fragNum " + this.fragNum
+//                                    + "QuizType " + this.QuizType
+//                                    + "QuizNum " + this.QuizNum, Toast.LENGTH_LONG).show();
         QuizGenerator newQuiz = new QuizGenerator(fragNum, QuizType, QuizNum);
         this.mQuiz = newQuiz.getQuiz();
         this.mQuizList = newQuiz.getQuizList();
@@ -82,23 +83,35 @@ public class DetailedQuizSlideFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // Write a message to the database
+            int quizNum2 = 0;
+            switch(QuizType){
+                case "userInterface":
+                    quizNum2=0;
+                    break;
+                case "userInput":
+                    quizNum2=1;
+                    break;
+                case "multipleScreen":
+                    quizNum2=2;
+                    break;
+                case "extraQuestions":
+                    quizNum2=3;
+                    break;
+            }
+
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference()
                     .child("users")
                     .child(user.getUid())
-                    .child("Quiz")
-                    .child(QuizType)
-                    .child(String.valueOf(QuizNum));
-            myRef.child("fragNum").setValue(String.valueOf(fragNum));
-            myRef.child("isComplete").setValue("false");
-            if (this.fragNum == mQuizList.size() - 1) {
+                    .child("quiz")
+                    .child(String.valueOf(quizNum2));
+            if (this.fragNum == 5) {
                 myRef.child("isComplete").setValue("true");
             }
+
         }
 
     }
-
-
 
     /**
      * The Fragment's UI is a simple text view showing its instance number and
@@ -110,22 +123,22 @@ public class DetailedQuizSlideFragment extends Fragment {
         View layoutView = inflater.inflate(R.layout.fragment_detailed_quiz_slide,
                 container, false);
 
-        View tv = layoutView.findViewById(R.id.header1);
-        ((TextView) tv).setText("Fragment #" + fragNum);
+//        View tv = layoutView.findViewById(R.id.header1);
+//        ((TextView) tv).setText("Fragment #" + fragNum);
         View tv1 = layoutView.findViewById(R.id.header2);
         ((TextView) tv1).setText(mQuiz.getQuizQuestion().toString());
         //Toast.makeText(getActivity(), "quiz 2 " + mQuiz.getQuizQuestion().toString(), Toast.LENGTH_SHORT).show();
 
-        View tv2 = layoutView.findViewById(R.id.text2);
+        final View tv2 = layoutView.findViewById(R.id.text2);
         ((TextView) tv2).setText(mQuiz.getQuizOptions()[0].toString());
 
-        View tv3 = layoutView.findViewById(R.id.text3);
+        final View tv3 = layoutView.findViewById(R.id.text3);
         ((TextView) tv3).setText(mQuiz.getQuizOptions()[1].toString());
 
-        View tv4 = layoutView.findViewById(R.id.text4);
+        final View tv4 = layoutView.findViewById(R.id.text4);
         ((TextView) tv4).setText(mQuiz.getQuizOptions()[2].toString());
 
-        View tv5 = layoutView.findViewById(R.id.text5);
+        final View tv5 = layoutView.findViewById(R.id.text5);
         ((TextView) tv5).setText(mQuiz.getQuizOptions()[3].toString());
 
 
@@ -187,18 +200,65 @@ public class DetailedQuizSlideFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean isCorrect = false;
+                int checkedOption =0;
 
                 for (int i=0; i<radioButtonArrayList.size(); i++) {
                     if (radioButtonArrayList.get(i).isChecked() && (mQuiz.getQuizAnswer() == (i+1))) {
-                        resultText.setText("Correct!");
+                        switch(i){
+                            case 0:
+                                ((TextView) tv2).setTextColor(Color.parseColor("#A4C639"));
+                                break;
+                            case 1:
+                                ((TextView) tv3).setTextColor(Color.parseColor("#A4C639"));
+                                break;
+                            case 2:
+                                ((TextView) tv4).setTextColor(Color.parseColor("#A4C639"));
+                                break;
+                            case 3:
+                                ((TextView) tv5).setTextColor(Color.parseColor("#A4C639"));
+                                break;
+                        }
+                        checkedOption = i;
+                        //resultText.setText("Correct!");
                         isCorrect = true;
                         break;
                     }
                 }
                 if (!isCorrect) {
-                    resultText.setText("Try Again!");
+                    for (int i=0; i<radioButtonArrayList.size(); i++) {
+                        if (radioButtonArrayList.get(i).isChecked()){
+                            switch(i){
+                                case 0:
+                                    ((TextView) tv2).setTextColor(Color.RED);
+                                    break;
+                                case 1:
+                                    ((TextView) tv3).setTextColor(Color.RED);
+                                    break;
+                                case 2:
+                                    ((TextView) tv4).setTextColor(Color.RED);
+                                    break;
+                                case 3:
+                                    ((TextView) tv5).setTextColor(Color.RED);
+                                    break;
+                            }
+                        }
+                    }
+
+                    //resultText.setText("Try Again!");
+                }else{
+                    if(fragNum==5){
+                        submitAnsButton.setVisibility(View.GONE);
+                        resultText.setText("Congratulation on completing the quiz!");
+                        resultText.setGravity(Gravity.CENTER);
+                        resultText.setVisibility(View.VISIBLE);
+                    }else{
+                        submitAnsButton.setVisibility(View.GONE);
+                        resultText.setText("Swipe Left to Proceed!");
+                        resultText.setVisibility(View.VISIBLE);
+                    }
+
                 }
-                resultText.setVisibility(View.VISIBLE);
+                //resultText.setVisibility(View.VISIBLE);
             }
         });
 

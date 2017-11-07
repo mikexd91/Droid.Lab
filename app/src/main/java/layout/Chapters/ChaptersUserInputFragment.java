@@ -53,6 +53,12 @@ public class ChaptersUserInputFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -222,18 +228,6 @@ public class ChaptersUserInputFragment extends Fragment {
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
-//        mListView.setAdapter(chaptersCardArrayAdapter);
-//
-//        mListView.setOnItemClickListener(new OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent i = new Intent(getActivity(), DetailLessonActivity.class);
-//                i.putExtra("title","userInput");
-//                i.putExtra("lesson",position);
-//                startActivity(i);
-//            }
-//        });
-
         mRecyclerView = (RecyclerView) view.findViewById(recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -264,35 +258,30 @@ public class ChaptersUserInputFragment extends Fragment {
         itemAnimator.setRemoveDuration(1000);
         mRecyclerView.setItemAnimator(itemAnimator);
 
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // Write a message to the database
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference().child("users")
                     .child(user.getUid())
-                    .child("lesson");
-            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    .child("lesson")
+                    .child("userInput");
+            myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     //String value = dataSnapshot.getValue(String.class);
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Log.d(TAG, "Value is: " + snapshot.getValue().toString());
-                        int i = 0;
-                        for(DataSnapshot snap : snapshot.getChildren()){
-                            Log.d(TAG, "Value is: " + snap.getValue().toString() + " " + i);
-                            String isComplete = snap.child("isComplete").getValue().toString();
-                            if(isComplete.equalsIgnoreCase("true")){
-                                Log.d(TAG, "Value is: " + snap.getValue().toString() + " " + i);
-                                chaptersCardArrayAdapter.getItem(i++).setIsCompleted(true);
-                            }
-//                            String fragNum = snap.child("fragNum").getValue().toString();
-//                            Log.d(TAG, "fragment: " + fragNum);
+                        //Log.d(TAG, "entireeeee Value is: " + snapshot.getValue().toString());
+                        String isComplete = snapshot.child("isComplete").getValue().toString();
+                        if(isComplete.equalsIgnoreCase("true")){
+                            Log.d(TAG, "Value is: " + snapshot.getValue().toString() + " " + snapshot.getKey().toString());
+                            mAdapter.getList().get(Integer.valueOf(snapshot.getKey().toString())).setIsCompleted(true);
+                            mAdapter.notifyDataSetChanged();
                         }
                     }
-
-                    //Log.d(TAG, "Value is: " + value);
                 }
 
                 @Override
@@ -301,12 +290,6 @@ public class ChaptersUserInputFragment extends Fragment {
                     Log.w(TAG, "Failed to read value.", error.toException());
                 }
             });
-
-
-//            myRef = database.getReference()
-//                    .child("users")
-//                    .child(user.getUid());
-
         }
         return view;
     }

@@ -50,7 +50,7 @@
             android:layout_weight="0.1"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/checkbox2"
+                android:id="@+id/urlImageView"
                 android:visibility="gone"
                 android:layout_gravity="center"
                 android:src="@drawable/icons_ok"
