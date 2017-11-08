@@ -72,63 +72,63 @@ public class ChaptersUserInputFragment extends Fragment {
         String title, description;
         //Making an App Interactive: Part 1
         //card1
-        title = "Introduction";
+        title = "1. Introduction";
         description = "We'll teach you how to build an app with buttons and text fields that you can interact with.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card2
-        title = "Plan How to Build the Layout";
+        title = "2. Plan How to Build the Layout";
         description = "Selecting, positioning and styling the views.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card3
-        title = "Build Layout";
+        title = "3. Build Layout";
         description = "It's time to build the layout.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card4
-        title = "Do Something When the Button is Clicked";
+        title = "4. Do Something When the Button is Clicked";
         description = "Adding a Button XML attribute.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card5
-        title = "Modifying First Lines of Java Code";
+        title = "5. Modifying First Lines of Java Code";
         description = "Looking at the code and modifying it.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card6
-        title = "Add TextViews for Price";
+        title = "6. Add TextViews for Price";
         description = "Adding TextViews to the layout.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card7
-        title = "Debugging a Crash";
+        title = "7. Debugging a Crash";
         description = "Oh no! The app crashed! What do I do?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card8
-        title = "Hook Up Two Buttons";
+        title = "8. Hook Up Two Buttons";
         description = "Buttons, buttons and more buttons.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card9
-        title = "Debug Mode in Android Studio";
+        title = "9. Debug Mode in Android Studio";
         description = "Identifying and fixing errors in your code.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
@@ -136,21 +136,21 @@ public class ChaptersUserInputFragment extends Fragment {
 
         //Making an App Interactive: Part 2
         //card10
-        title = "Nested ViewGroups";
+        title = "10. Nested ViewGroups";
         description = "Building interesting and complex layouts.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card11
-        title = "View Hierarchy Diagrams";
+        title = "11. View Hierarchy Diagrams";
         description = "Understanding the arrangement of different layouts.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card12
-        title = "Build the Quantity Picker Layout";
+        title = "12. Build the Quantity Picker Layout";
         description = "Writing XML for a layout.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
@@ -158,42 +158,42 @@ public class ChaptersUserInputFragment extends Fragment {
 
         //Object-Oriented Programming: Part 1
         //card13
-        title = "Resources";
+        title = "13. Resources";
         description = "Images, colors, dimensions, raw media files, etc.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card14
-        title = "Resource IDs";
+        title = "14. Resource IDs";
         description = "Accessing resources using IDs.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card15
-        title = "From XML to Java";
+        title = "15. From XML to Java";
         description = "What's happening between XML & Java.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card16
-        title = "Inheriting Behaviour";
+        title = "16. Inheriting Behaviour";
         description = "Extension of functionalities.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card17
-        title = "Find View by Id";
+        title = "17. Find View by Id";
         description = "Accessing views using IDs.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card18
-        title = "Casting with findViewById";
+        title = "18. Casting with findViewById";
         description = "Type casting views obtained from findViewById.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
@@ -201,28 +201,28 @@ public class ChaptersUserInputFragment extends Fragment {
 
         //Object-Oriented Programming: Part 2
         //card19
-        title = "Practice With Intents";
+        title = "19. Practice With Intents";
         description = "Sending and receiving intents.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card20
-        title = "Localization";
+        title = "20. Localization";
         description = "Adapting your app to different locales.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card21
-        title = "Styles";
+        title = "21. Styles";
         description = "Changing the design of a view.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card22
-        title = "Themes";
+        title = "22. Themes";
         description = "Styles for an activity or application.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);

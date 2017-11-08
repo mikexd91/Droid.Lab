@@ -77,63 +77,63 @@ public class ChaptersUserInterfaceFragment extends Fragment {
 
         //Building Layouts: Part 1
         //card1
-        title = "Introduction";
+        title = "1. Introduction";
         description = "We'll discuss how to create a user interface through a series of short videos and hands-on practice.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card2
-        title = "Views";
+        title = "2. Views";
         description = "The first thing in Android you need to learn.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card3
-        title = "Using a TextView";
+        title = "3. Using a TextView";
         description = "Let's learn how to create an TextView.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card4
-        title = "XML Syntax";
+        title = "4. XML Syntax";
         description = "Rules that define what a valid XML is.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card5
-        title = "Change the TextView";
+        title = "5. Change the TextView";
         description = "Modifying the TextView.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card6
-        title = "Setting Wrap Content";
+        title = "6. Setting Wrap Content";
         description = "Arranging and aligning texts.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card7
-        title = "TextView Text Size";
+        title = "7. TextView Text Size";
         description = "How to change the text size.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card8
-        title = "TextView Text color";
+        title = "8. TextView Text color";
         description = "How to change the text color.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card9
-        title = "Simple ImageView";
+        title = "9. Simple ImageView";
         description = "Let's now learn how to create an ImageView.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
@@ -141,63 +141,63 @@ public class ChaptersUserInterfaceFragment extends Fragment {
 
         //Building Layouts: Part 2
         //card10
-        title = "ViewGroups";
+        title = "10. ViewGroups";
         description = "We'll introduce what a ViewGroup is.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card11
-        title = "Types of ViewGroups";
+        title = "11. Types of ViewGroups";
         description = "The different types of ViewGroups.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card12
-        title = "LinearLayout";
+        title = "12. LinearLayout";
         description = "A very simple layout.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card13
-        title = "Width and Height";
+        title = "13. Width and Height";
         description = "Changing the size of views.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card14
-        title = "Evenly Spacing out Children Views";
+        title = "14. Evenly Spacing out Children Views";
         description = "How to evenly space out different views.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card15
-        title = "Layout Weight";
+        title = "15. Layout Weight";
         description = "Spacing out views equally.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card16
-        title = "Relative Layout";
+        title = "16. Relative Layout";
         description = "Let's build more flexible layouts.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card17
-        title = "Relative to Other Views";
+        title = "17. Relative to Other Views";
         description = "Positioning children relative to other views.";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);
         mList.add(card);
 
         //card18
-        title = "Padding vs Margin";
+        title = "18. Padding vs Margin";
         description = "What's the difference?";
         card = new ChapterCard(title, description);
         chaptersCardArrayAdapter.add(card);

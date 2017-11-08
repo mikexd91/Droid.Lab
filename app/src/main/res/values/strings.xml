@@ -130,7 +130,7 @@
             • GridLayout<br />
 
             All layout manager can be configured via attributes. Children can also define attributes which may be evaluated by their parent layout.]]></item>
-        <item><![CDATA[ The first thing in Android you need to learn is something called Views. We used a lot of new words in this video!
+        <item><![CDATA[ The first thing in Android you need to learn is something called Views. We used a lot of new words in this video!<br/>
             • Layout <br/>
             • User Interface <br/>
             • TextView<br/>
@@ -138,71 +138,136 @@
             • Button<br/>
             • Camel case<br/>
 
-            Don\'t worry, you don\'t have to memorize them. Believe it or not, professional developers don\'t memorize everything looking up information is a key part of the job! You can look up their definitions in the Vocab Glossary.]]></item>
-        <item><![CDATA[ 4 TextView]]></item>
-        <item><![CDATA[ 4 Words we used in this video:
+            Don\t worry, you don\t have to memorize them. Believe it or not, professional developers don\t memorize everything looking up information is a key part of the job! You can look up their definitions in the Vocab Glossary.]]></item>
+        <item><![CDATA[ The Android TextView component is a View subclass which is capable of showing text. Being a subclass of View the TextView component can be used in your Android app\s GUI inside a ViewGroup, or as the content view of an activity.<br/>
+            You can create a TextView instance either by declaring it inside a layout XML file or by instantiating it programmatically.]]></item>
+        <item><![CDATA[ Words we used in this video: <br/>
             • Android Studio <br/>
             • Device <br/>
             • Density-Independent Pixels<br/>
 
             <div> What does Density-Independent Pixel actually mean? You might be familiar with a pixel, which is a small illuminated area on a screen. Screens are essentially made up of hundreds of thousands of these pixels.
-            So what is a "density independent" pixel? Well, better screens will often have more pixels in the same amount of space. The number of pixels in a fixed space is known as the screen\'s pixel density. In case you\'re wondering, 48dp translates to approximately 9mm in physical size.</div>]]></item>
-        <item><![CDATA[ XML is a software and hardware independent tool for storing and transporting data.
+            So what is a "density independent" pixel? Well, better screens will often have more pixels in the same amount of space. The number of pixels in a fixed space is known as the screen\s pixel density. In case you\re wondering, 48dp translates to approximately 9mm in physical size.</div>]]></item>
+        <item><![CDATA[ XML is a software and hardware independent tool for storing and transporting data.<br/>
             • XML stands for eXtensible Markup Language <br/>
             • XML is a markup language much like HTML <br/>
             • XML was designed to store and transport data <br/>
             • XML was designed to be self-descriptive <br/>]]></item>
-        <item><![CDATA[ 3  Here are the words we introduced in this video:
+        <item><![CDATA[ Here are the words we introduced in this video: <br/>
             • XML element <br/>
             • Tag <br/>
             • Self-Closing Tags <br/>
             • Attributes <br/>
             • Syntax <br/>]]></item>
-        <item><![CDATA[ 5 Setting a View\'s size to wrap_content will force it to expand only far enough to contain the values (or child controls) it contains. <br />
+        <item><![CDATA[ Setting a View\s size to wrap_content will force it to expand only far enough to contain the values (or child controls) it contains. <br />
          For controls -- like text boxes (TextView) or images (ImageView) -- this will wrap the text or image being shown.  <br />
-          For layout elements it will resize the layout to fit the controls / layouts added as its children. It\'s roughly the equivalent of setting a Windows Form Control\'s Autosize property to True.]]></item>
-        <item><![CDATA[ 5 Words we used in this video:
+          For layout elements it will resize the layout to fit the controls / layouts added as its children. It\s roughly the equivalent of setting a Windows Form Control\s Autosize property to True.]]></item>
+        <item><![CDATA[ Words we used in this video: <br/>
          • Hard coding <br/>
          • wrap_content <br/>]]></item>
-        <item><![CDATA[ 7 TextView widget display text on android application. we can set or change TextView font size statically by declarative syntax in xml layout file or programmatically at run time in java file. even we can use an xml file source to define font size. ]]></item>
-        <item><![CDATA[ 7 For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip New term we used in this video:
+        <item><![CDATA[ TextView widget display text on android application. we can set or change TextView font size statically by declarative syntax in xml layout file or programmatically at run time in java file. even we can use an xml file source to define font size. ]]></item>
+        <item><![CDATA[ For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip New term we used in this video: <br/>
          • Scale-Independent Pixels <br/>]]></item>
-        <item><![CDATA[  ]]></item>
-        <item><![CDATA[ For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip
-New term we used in this video:
-	Scale-Independent Pixels]]></item>
-        <item><![CDATA[ TextView Text Color]]></item>
-        <item><![CDATA[ Textview text color]]></item>
-        <item><![CDATA[ Simple ImageView]]></item>
-        <item><![CDATA[ Simple ImageView]]></item>
-        <item><![CDATA[ ViewGroups]]></item>
+        <item><![CDATA[ <div> <b>DP:</b> A virtual pixel unit that you should use when defining UI layout, to express layout dimensions or position in a density-independent way.
+        The density- independent pixel is equivalent to one physical pixel on a 160 dpi screen, which is the baseline density assumed by the system for a “medium” density screen.
+        At runtime, the system transparently handles any scaling of the dp units, as necessary, based on the actual density of the screen in use.
+        he conversion of dp units to screen pixels is simple: px = dp * (dpi / 160). For example, on a 240 dpi screen, 1 dp equals 1.5 physical pixels.
+        You should always use dp units when defining your application’s UI, to ensure proper display of your UI on screens with different densities.</div>
+        <div> <b>SP</b> — this is like the dp unit, but it is also scaled by the user’s font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and user’s preference.</div>  ]]></item>
+        <item><![CDATA[ For more Android development tips, search on social media for the hashtags #AndroidDev and #Protip New term we used in this video:
+	     • Scale-Independent Pixels <br/>]]></item>
+        <item><![CDATA[ You can use various functions from the Color class to get the same effect of course. <br/>
+               <div> <b>Color.parseColor (Manual) (like LEX uses)</b> <br/>
+                <i>text.setTextColor(Color.parseColor("#FFFFFF"));</i> <br/> </div>
+
+               <div> <b>Color.rgb and Color.argb (Manual rgb) (Manual argb) (like Ganapathy uses) </b> <br/>
+                     <i> holder.text.setTextColor(Color.rgb(200,0,0));</i> <br/>
+                     <i> holder.text.setTextColor(Color.argb(0,200,0,0)); </i> <br/> </div>
+
+                <div> <b>And of course, if you want to define your color in an XML file, you can do this:</b> <br/>
+                      <i> <color name="errorColor">#f00</color> </i> <br/>
+                      <b> because the getColor() function is deprecated1, you need to use it like so:</b><br/>
+                      <i> ContextCompat.getColor(context, R.color.your_color);</i> <br/> </div>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+         • setTextColor<br/>
+         • hexcode <br/>]]></item>
+        <item><![CDATA[ Android ImageView is used to display an image file. Android also has an ImageButton. As the name suggests, the ImageButton component is a button with an image on. The ImageButton is represented by the Android class <i>android.widget.ImageButton</i>.]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+         • scaleType<br/>
+         • source <br/>]]></item>
+        <item><![CDATA[ <div>A layout manager is responsible for the layout of itself and its child views. The base class for these layout managers is the android.view.ViewGroup class.
+            Layout managers can be nested to create complex layouts.</div>
+            <div>All layout manager can be configured via attributes. Children can also define attributes which may be evaluated by their parent layout.]]></item>
         <item><![CDATA[ Here are the words we introduced in this video:
          • ViewGroups<br/>
          • Root View <br/>
          • Parent <br/>
          • Child <br/>
          • Sibling <br/>]]></item>
-        <item><![CDATA[ Types of ViewGroups]]></item>
-        <item><![CDATA[ Link to the code. Here are the words we introduced in this video:
+        <item><![CDATA[ Types of ViewGroups: <br/>
+            The most relevant layout managers in Android are:<br/>
+            • ConstraintLayout - provided by an extra library<br />
+            • LinearLayout<br />
+            • FrameLayout<br />
+            • RelativeLayout<br />
+            • GridLayout<br />]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
 	     • LinearLayout <br/>
 	     • RelativeLayout <br/>]]></item>
-        <item><![CDATA[ LinearLayout]]></item>
-        <item><![CDATA[ LinearLayout]]></item>
-        <item><![CDATA[ Width and Height]]></item>
+        <item><![CDATA[ <div>Linear layout is a simple layout used in android for layout designing.
+        In the Linear layout all the elements are displayed in linear fashion means all the childs/elements of a
+        linear layout are displayed according to its orientation. The value for orientation property can
+        be either horizontal or vertical.</div>
+        <div>There are two types of linear layout orientation: <br/>
+            • Vertical <br/>
+            • Horizontal <br/>
+        As the name specified these two orientations are used to arrange there child one after the other,
+        in a line, either vertically or horizontally.</div>]]></item>
         <item><![CDATA[ Here are the words we introduced in this video:
+	     • LinearLayout <br/>
+	     • horizontal <br/>
+	     • vertical <br/>]]></item>
+        <item><![CDATA[ Major difference between <i>match_parent</i>, <i>fill_parent</>, <i>wrap_content</>: <br/>
+            <b> Match_Parent :</b> Definition of match parent is to match width and height same as its parent attribute tag. For example in every layout xml file firstly Layout defined because each and every widgets code can only be write inside it. So that first layout defining are called as its parent and so on it, you declare layout_width as match_parent and layout_height as match_parent then it will set the height and width of that selected widget same as your parent layout layout tag.<br/>
+            <b> Fill_Parent :</b> Definition of fill parent attribute is to completely fill parent tag area. For example if your parent tag has 100 dp set into width and also 100 dp into height then it will cover your whole parent area. Here parent are called as your main above first defining layout tag.</br>
+            <b> Wrap_Content :</b> Definition of wrap content is to cover the only its included content + declared padding size. For example if you are declaring button name as “button” and set its heigh & width as wrap_content then it will creates button contain will ” button ” name size and dose not occupy more then its content area.<br/>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
          • match_parent <br/>
          • ViewGroup layout parameter <br/>]]></item>
-        <item><![CDATA[ Evenly Spacing Out Views]]></item>
-        <item><![CDATA[ Evenly Spacing Out Views]]></item>
-        <item><![CDATA[ Layout Weight]]></item>
-        <item><![CDATA[ Here are the words we introduced in this video:
+        <item><![CDATA[ <div>We’re defining each of the child layouts with a layout_width of match_parent, but by setting a layout_weight (i.e. changing the value of this attribute from its default of 0)
+        we can tell the parent layout to divide the available space between controls. If we have set the two layout_weight values of the child layouts to the same value,
+        and they will be given an equal part of the available space. <br/>
+        If we are dividing the parent in to equal parts, we just set the children’s layout_weights all to 1. But if we want to divide it unequally, we can do that in a number of ways.
+        We can either use decimal fractional values which total 1, or we can use integer values:</div>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+	     • weight <br/>
+	     • Portrait <br/>
+	     • Landscape <br/>]]></item>
+        <item><![CDATA[ <div>We’re defining each of the child layouts with a layout_width of match_parent, but by setting a layout_weight (i.e. changing the value of this attribute from its default of 0)
+        we can tell the parent layout to divide the available space between controls. If we have set the two layout_weight values of the child layouts to the same value,
+        and they will be given an equal part of the available space. <br/>
+        If we are dividing the parent in to equal parts, we just set the children’s layout_weights all to 1. But if we want to divide it unequally, we can do that in a number of ways.
+        We can either use decimal fractional values which total 1, or we can use integer values:</div>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
          • layout_weight <br/>]]></item>
-        <item><![CDATA[ Relative Layout]]></item>
-        <item><![CDATA[ Relative Layout]]></item>
-        <item><![CDATA[ Relative to Other Views]]></item>
-        <item><![CDATA[ Relative to Other Views]]></item>
-        <item><![CDATA[ Padding vs Margin]]></item>
-        <item><![CDATA[ Here are the words we introduced in this video:
+        <item><![CDATA[ <div>In Android, RelativeLayout let you position your component base on the nearby (relative or sibling) component’s position. It’s the most flexible layout,
+        that allow you to position your component to display in anywhere you want (if you know how to “relative” it). <br/>
+        In RelativeLayout, you can use “above, below, left and right” to arrange the component position, for example, display a “button1” below “button2”, or display “button3” on right of the “button1”.</div>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+	     • RelativeLayout <br/>]]></item>
+        <item><![CDATA[ The RelativeLayout is very flexible. RelativeLayout give flexbility to position your component base on the relative or sibling component’s position. It’s the most flexible layout, that allow you to position your component to display in anywhere you want.]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+	     • RelativeLayout <br/>
+	     • siblings <br/>]]></item>
+        <item><![CDATA[
+            <div><b>Margin:</b><br/>
+            Margins make up the vertical and horizontal areas between elements. If elements have no margins around them, they will bump right up against each other.
+            In other words, he space outside of, or between, elements is what comprises the margin areas.</div>
+
+            <div><b>Padding:</b><br/>
+            MThe padding of an element is the horizontal and vertical space that’s set around the content area of the targeted element.
+            So padding is on the inside of a box, not the outside.</div>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
 	     • Padding <br/>
 	     • Margin <br/>]]></item>
         <item><![CDATA[ <b>Congratulation</b> on completing the first chapter on User Interface.
@@ -213,15 +278,27 @@ New term we used in this video:
 
     <!--lesson 2-->
     <string-array name="lesson_2_array">
-        <item><![CDATA[ 1 Welcome back! We’re excited that you want to move onto the next step of learning Android. <br />
+        <item><![CDATA[ Welcome back! We’re excited that you want to move onto the next step of learning Android. <br />
 
                 By the end of this course, you’ll be able to make an Android app with buttons and text fields that a user can interact with. Together we’ll make the Just Java app, which allows a user to fill out a form to order coffee.]]></item>
-        <item><![CDATA[ 2 Plan How to build the layout ]]></item>
-        <item><![CDATA[ 2 video Plan How to build the layout ]]></item>
-        <item><![CDATA[ 3 Build layout ]]></item>
-        <item><![CDATA[ 3 video Build layout ]]></item>
-        <item><![CDATA[ 4 Do something when the button is clicked ]]></item>
-        <item><![CDATA[ 4 video Here are the words we introduced in this video:
+        <item><![CDATA[ In the next video, we will going through the design process to plan for the layout of the app that
+                        we will be building. there are 3 steps involved: <br/>
+                        1. Select Views <br/>
+                        2. Position Views <br/>
+                        3. Style Views <br/>]]></item>
+        <item><![CDATA[  ]]></item>
+        <item><![CDATA[ After designing the layout, now we will proceed to build the layout, in the following video,
+                    more detailed instruction will be provided to you.]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ <div>Event-driven programming is a programming paradigm where the flow of execution is
+        determined by events triggered by actions (such user interaction, messaging from other threads, etc).
+        In this sense, Android is partially event-driven: we all can think of the onClick listeners or
+        the Activity lifecycle, which are events able to trigger actions in an application. </div>
+
+        <div>Why I said it is not a pure event-driven system? By default, each event is bound to a particular controller,
+        and it is difficult to operate besides it (for example, the onClick events are defined for a view,
+        having a limited scope).</div> ]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<div>
          •  Programming language <br/>
          •	Java <br/>
          •	Event-driven programming <br/>
@@ -231,70 +308,92 @@ New term we used in this video:
          •	Import statements <br/>
          •	Class name <br/>
          •	onCreate() <br/>  ]]></item>
-        <item><![CDATA[ 5 Modifying First Lines of Java Code ]]></item>
-        <item><![CDATA[ 5 video Here are the words we introduced in this video:
+        <item><![CDATA[ Modifying First Lines of Java Code can be seem daunting,
+        just follow the video next and you will be fine!]]></item>
+        <item><![CDATA[ 5 video Here are the words we introduced in this video: <br/>
          •  onClick <br/>
          •	Execute <br/>
          •	Method <br/>
          •	Calling <br/>
          •	Expressions <br/> ]]></item>
-        <item><![CDATA[ 6 Add TextViews for Price]]></item>
-        <item><![CDATA[ 6 video Make sure Auto Import is on:
-        •	For Windows, go to File > Settings > Editor > General > Auto Import
-        •	For Mac, go to Android Studio > Preferences > Editor > General > Auto Import
-        Check all of the following options:
-        •	Show import popup
-        •	Optimize imports on the fly
-        •	Add unambiguous imports on the fly
-        •	Insert imports on paste → All
-        Here are the words we introduced in this video:
-        •	Gist
-        •	Snippet ]]></item>
-        <item><![CDATA[ 7 Debugging a Crash]]></item>
-        <item><![CDATA[ 7 video DDMS stands for Dalvik Debug Monitor Server, and is a tool in Android to help you debug your app.
-        Here are the words we introduced in this video:
-        •	Debug
-        •	Crashes
-        •	Compile time error
-        •	Runtime error
-        •	System log
-        •	Stacktrace ]]></item>
-        <item><![CDATA[ 8 Hook Up two buttons]]> </item>
-        <item><![CDATA[ 8 video Hook up two buttons]]></item>
-        <item><![CDATA[ 9 Debug Mode in Android studio]]></item>
-        <item><![CDATA[ 9 video Here are the words we introduced in this video:
-        •	Debugger ]]></item>
-        <item><![CDATA[ 10 Nested ViewGroups]]></item>
-        <item><![CDATA[ 10 video ]]></item>
-        <item><![CDATA[ 11 View Hierarchy Diagrams]]></item>
-        <item><![CDATA[ 11 video Here are the words we introduced in this video:
+        <item><![CDATA[ Next, we will be Adding TextViews for the Price!]]></item>
+        <item><![CDATA[ <b>Make sure Auto Import is on:</b><br/>
+        •	For Windows, go to File > Settings > Editor > General > Auto Import <br/>
+        •	For Mac, go to Android Studio > Preferences > Editor > General > Auto Import <br/>
+        <b>Check all of the following options: </b> <br/>
+        •	Show import popup <br/>
+        •	Optimize imports on the fly <br/>
+        •	Add unambiguous imports on the fly <br/>
+        •	Insert imports on paste → All <br/>
+        <b>Here are the words we introduced in this video:</b> <br/>
+        •	Gist <br/>
+        •	Snippet <br/>]]></item>
+        <item><![CDATA[ Debugging a Crash can be daunting, just follow the video next and you will be fine!]]></item>
+        <item><![CDATA[ DDMS stands for Dalvik Debug Monitor Server, and is a tool in Android to help you debug your app.
+        Here are the words we introduced in this video: <br/>
+        •	Debug<br/>
+        •	Crashes <br/>
+        •	Compile time error <br/>
+        •	Runtime error<br/>
+        •	System log<br/>
+        •	Stacktrace <br/>]]></item>
+        <item><![CDATA[ Next part of bulding the picker quantity is to add the plus and minus button to change the quantity. You will learn about creating button and connecting button to your functions.]]> </item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ Android Studio provides a debugger that allows you to do the following and more: <br/>
+        •	Select a device to debug your app on. <br/>
+        •	Set breakpoints in your Java, Kotlin, and C/C++ code. <br/>
+        •	Examine variables and evaluate expressions at runtime.<br/>]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:<br/>
+        •	Debugger<br/> ]]></item>
+        <item><![CDATA[ It is a common misconception that using the basic layout structures leads to the most efficient layouts.
+        However, each widget and layout you add to your application requires initialization, layout, and drawing.
+        For example, using nested instances of LinearLayout can lead to an excessively deep view hierarchy.
+        Furthermore, nesting several instances of LinearLayout that use the layout_weight parameter can be especially
+        expensive as each child needs to be measured twice. This is particularly important when the layout is inflated
+        repeatedly, such as when used in a ListView or GridView.]]></item>
+        <item><![CDATA[  ]]></item>
+        <item><![CDATA[ Hierarchy Viewer is a tool built into Android Device Monitor that allows you to measure the layout speed for each view in your layout hierarchy. It can help you find performance bottlenecks caused by the structure of your view hierarchy.]]></item>
+        <item><![CDATA[ Here are the words we introduced in this video:
         •	Nested ViewGroups ]]></item>
-        <item><![CDATA[ 12 Build the quantity picker layout]]></item>
-        <item><![CDATA[ 12 video]]></item>
-        <item><![CDATA[ 13 Resources]]></item>
-        <item><![CDATA[ 13 video ]]></item>
-        <item><![CDATA[ 14 Resources IDs]]></item>
-        <item><![CDATA[ 14 video ]]></item>
-        <item><![CDATA[ 15 From XML to Java]]></item>
-        <item><![CDATA[ 15 video ]]></item>
-        <item><![CDATA[ 16 Inheriting Behaviour]]></item>
-        <item><![CDATA[ 16 video]]></item>
-        <item><![CDATA[ 17 Find Views By Id]]></item>
-        <item><![CDATA[ 17 video ]]></item>
-        <item><![CDATA[ 18 Casting with findViewById]]> </item>
-        <item><![CDATA[ 18 video ]]></item>
-        <item><![CDATA[ 19 Practice with Intents]]></item>
-        <item><![CDATA[ 19 video For students using the emulator: This is one of the few pieces of the course that does not work on an emulator, so we suggest you watch the answer video and move on, or return to this quiz when you have an android device to develop with.
+        <item><![CDATA[ Now we learn to build the picker layout!]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ <div>The Android resource system keeps track of all non-code assets associated with an application. You can use this class to access your applications resources. You can generally acquire the Resources instance associated with your application with getResources().</div>
+                        <div>The Android SDK tools compile your application\s resources into the application binary at build time. To use a resource, you must install it correctly in the source tree (inside your projects res/ directory) and build your application. As part of the build process, the SDK tools generate symbols for each resource, which you can use in your application code to access the resources.</div>
+                        <div>Using application resources makes it easy to update various characteristics of your application without modifying code, and—by providing sets of alternative resources—enables you to optimize your application for a variety of device configurations (such as for different languages and screen sizes). This is an important aspect of developing Android applications that are compatible on different types of devices.</div>]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ <div>Once you provide a resource in your application (discussed in Providing Resources), you can apply it by referencing its resource ID. All resource IDs are defined in your projects R class, which the aapt tool automatically generates.</div>
+                        <div>Although the R class is where resource IDs are specified, you should never need to look there to discover a resource ID. A resource ID is always composed of:<br/>
+                        •	The resource type: Each resource is grouped into a "type," such as string, drawable, and layout. For more about the different types, see Resource Types.<br/>
+                        •	The resource name, which is either: the filename, excluding the extension; or the value in the XML android:name attribute, if the resource is a simple value (such as a string).<br/></div>]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ From XML to Java, you will learn to create a java class in the next video]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ You will learn about Inheriting Behaviour in the next video]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ Finds a view that was identified by the android:id XML attribute that was processed in onCreate(Bundle). <br/>
+        <i>Note: In most cases -- depending on compiler support -- the resulting view is automatically cast to the target class type. If the target class type is unconstrained, an explicit cast may be necessary.</i>]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ onCreate(Bundle) is where you initialize your activity. Most importantly, here you will usually call setContentView(int) with a layout resource defining your UI, and using findViewById(int) to retrieve the widgets in that UI that you need to interact with programmatically.]]> </item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ Practice with Intents]]></item>
+        <item><![CDATA[ For students using the emulator: This is one of the few pieces of the course that does not work on an emulator, so we suggest you watch the answer video and move on, or return to this quiz when you have an android device to develop with.
 ]]></item>
-        <item><![CDATA[ 20 Localisation]]></item>
-        <item><![CDATA[ 20 video Localisation]]></item>
-        <item><![CDATA[ 21 Styles]]></item>
-        <item><![CDATA[ 21 video Note that styles.xml is in a resource folder. This means you can override the style and provide different attributes on differently sized devices.
-You just need to create a new styles.xml file, within the appropriate values folder.
+        <item><![CDATA[ <div>Android will run on many devices in many regions. To reach the most users, your application should handle text, audio files, numbers, currency, and graphics in ways appropriate to the locales where your application will be used.</div>
+                <div>It is good practice to use the Android resource framework to separate the localized aspects of your application as much as possible from the core Java functionality:<br/>
+                •	You can put most or all of the contents of your applications user interface into resource files, as described in this document and in Providing Resources.<br/>
+                •	The behavior of the user interface, on the other hand, is driven by your Java code. For example, if users input data that needs to be formatted or sorted differently depending on locale, then you would use Java to handle the data programmatically. This document does not cover how to localize your Java code.</div>]]></item>
+        <item><![CDATA[ ]]></item>
+        <item><![CDATA[ A style is a collection of attributes that specify the look and format for a View or window. A style can specify attributes such as height, padding, font color, font size, background color, and much more. A style is defined in an XML resource that is separate from the XML that specifies the layout.]]></item>
+        <item><![CDATA[ <i>Note that styles.xml is in a resource folder. This means you can override the style and provide different attributes on differently sized devices.
+You just need to create a new styles.xml file, within the appropriate values folder. </i> <br/>
 For example, if you wanted a HeaderTextStyle to show bigger text if the user is on a tablet with the smaller side’s screen width of 600 dp or greater, you could save a new version of the HeaderTextStyle in res/values-sw600dp/styles.xml folder.
 ]]></item>
-        <item><![CDATA[ 22 themes]]></item>
-        <item><![CDATA[ 22 video]]></item>
+        <item><![CDATA[ To set a theme for all the activities of your app, open the AndroidManifest.xml file and edit the <application> tag to include the android:theme attribute with the style name. For example:<br/>
+        <i><application android:theme="@style/CustomTheme"></i> <br/>
+        If you want a theme applied to just one activity in your app, then add the <i>android:theme</i> attribute to the <activity> tag instead.
+
+]]></item>
+        <item><![CDATA[ ]]></item>
         <item><![CDATA[ <b>Congratulation</b> on completing the second chapter on User Input.
         You can proceed to the Quiz section to test your skills or move on to the next chapter on User Input.
         See Ya! ]]></item>

@@ -102,14 +102,22 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
             if (this.fragNum == 0) {
                 myRef.child(String.valueOf(this.fragNum)).child("isComplete").setValue("true");
             } else if ((this.fragNum+1) % 2 == 0) {
-                if (this.lessonNum == 17 && this.lessonType.equalsIgnoreCase("userInterface")) {
-                    myRef.child(String.valueOf(this.lessonNum)).child("isComplete").setValue("true");
-                } else if (this.lessonNum == 21 && this.lessonType.equalsIgnoreCase("userInput")) {
-                    myRef.child(String.valueOf(this.lessonNum)).child("isComplete").setValue("true");
-                } else {
-                    int lesson = (this.fragNum+1) / 2;
-                    Log.d("hello","this is the lesson number "+ lesson);
-                    myRef.child(String.valueOf(lesson)).child("isComplete").setValue("true");
+                if (this.lessonType.equalsIgnoreCase("userInterface")) {
+                    if(this.lessonNum >= 17){
+                        myRef.child(String.valueOf(17)).child("isComplete").setValue("true");
+                    }else{
+                        int lesson = (this.fragNum+1) / 2;
+                        myRef.child(String.valueOf(lesson)).child("isComplete").setValue("true");
+
+                    }
+
+                } else if (this.lessonType.equalsIgnoreCase("userInput")) {
+                    if (this.lessonNum >= 21) {
+                        myRef.child(String.valueOf(21)).child("isComplete").setValue("true");
+                    } else {
+                        int lesson = (this.fragNum + 1) / 2;
+                        myRef.child(String.valueOf(lesson)).child("isComplete").setValue("true");
+                    }
                 }
             }
         }
@@ -149,7 +157,7 @@ public class DetailedLessonScreenSlideFragment extends Fragment implements YouTu
                 container, false);
 
         View tv = layoutView.findViewById(R.id.header1);
-        ((TextView) tv).setText(mLesson.getTitle().toString() + " - Fragment #" + fragNum + " - lesson #" + lessonNum);
+        ((TextView) tv).setText(mLesson.getTitle().toString() + "                                ");
 
         View tv1 = layoutView.findViewById(R.id.text1);
         switch (lessonType) {
