@@ -26,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         SharedPreferences prefs = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE);
+        final String name = prefs.getString("name", null);
         String email = prefs.getString("email", null);
         String password = prefs.getString("password", null);
 
@@ -46,7 +47,8 @@ public class SplashActivity extends AppCompatActivity {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 if (user != null) {
                                     // Name, email address, and profile photo Url
-                                    String name = user.getDisplayName();
+                                   // String name = user.getDisplayName();
+
                                     String email = user.getEmail();
                                     Uri photoUrl = user.getPhotoUrl();
 

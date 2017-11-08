@@ -49,6 +49,7 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView = navigationView.getHeaderView(0);
         nameView = hView.findViewById(R.id.nameView2);
+        nameView.setText(getIntent().getStringExtra("name"));
         navigationView.setNavigationItemSelectedListener(this);
 
         //Toast.makeText(this,"email "+getIntent().getStringExtra("email"),Toast.LENGTH_SHORT).show();
@@ -73,7 +74,10 @@ public class HomeActivity extends AppCompatActivity
                     myRef.child("userId").setValue(user.getUid());
                     myRef.child("userEmail").setValue(user.getEmail());
                     myRef.child("userPhoto").setValue(user.getPhotoUrl());
-                    nameView.setText(user.getDisplayName());
+                    if(nameView.getText().toString()==""){
+                        nameView.setText(user.getDisplayName());
+                    }
+
                 }
             }
         };

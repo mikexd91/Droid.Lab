@@ -35,6 +35,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     private EditText mPasswordView;
     private View mProgressView;
 
+    private DatabaseReference myRef;
+    private FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "MainActivity";
@@ -213,13 +217,15 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                         Toast.LENGTH_SHORT).show();
                             }else{
                                 mProgressView.setVisibility(View.VISIBLE);
-                                SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
-                                editor.putString("email",email);
-                                editor.putString("password",password);
-                                editor.commit();
+//                                SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
+//                                editor.putString("email",email);
+//                                editor.putString("password",password);
+//                                editor.commit();
+                                SharedPreferences prefs = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE);
 
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 if (user != null) {
+
                                     // Name, email address, and profile photo Url
                                     String name = user.getDisplayName();
                                     String email = user.getEmail();
@@ -231,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                                     String uid = user.getUid();
 
                                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
-                                    i.putExtra("name",name);
+                                    i.putExtra("name",prefs.getString("name",null));
                                     i.putExtra("email", email);
                                     i.putExtra("photoUrl", photoUrl);
                                     i.putExtra("uid", uid);

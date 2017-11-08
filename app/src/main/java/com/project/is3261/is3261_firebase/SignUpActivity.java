@@ -35,7 +35,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -60,6 +60,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
     private View mProgressView;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
+    private DatabaseReference myRef;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "SignUpActivity";
 
@@ -226,29 +227,38 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
                                 SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
                                 editor.putString("email",email);
                                 editor.putString("password",password);
+                                editor.putString("name",name);
                                 editor.commit();
 
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 if (user != null) {
                                     // Name, email address, and profile photo Url
-                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(name).build();
-                                    user.updateProfile(profileUpdates);
 
-                                    String name = user.getDisplayName();
-                                    String email = user.getEmail();
-                                    Uri photoUrl = user.getPhotoUrl();
+                                    database = FirebaseDatabase.getInstance();
+                                    myRef = database.getReference().child("users").child(user.getUid());
+                                    myRef.child("userName").setValue(name);
+                                    myRef.child("userId").setValue(user.getUid());
+                                    myRef.child("userEmail").setValue(email);
 
+//                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//                                            .setDisplayName(name).build();
+//                                    user.updateProfile(profileUpdates);
+//
+//                                    String name = user.getDisplayName();
+//                                    String email = user.getEmail();
+//                                    Uri photoUrl = user.getPhotoUrl();
+
+                                    Toast.makeText(SignUpActivity.this, name,
+                                            Toast.LENGTH_SHORT).show();
                                     // The user's ID, unique to the Firebase project. Do NOT use this value to
                                     // authenticate with your backend server, if you have one. Use
                                     // FirebaseUser.getToken() instead.
                                     String uid = user.getUid();
 
-
                                     Intent i = new Intent(SignUpActivity.this, HomeActivity.class);
                                     i.putExtra("name",name);
                                     i.putExtra("email", email);
-                                    i.putExtra("photoUrl", photoUrl);
+                                    i.putExtra("photoUrl", "");
                                     i.putExtra("uid", uid);
                                     startActivity(i);
                                     mProgressView.setVisibility(View.GONE);
