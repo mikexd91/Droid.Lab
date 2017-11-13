@@ -47,6 +47,9 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
@@ -97,7 +100,16 @@ public class StoryFragment extends Fragment {
         mRecyclerView = (RecyclerView) rootView.findViewById(recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        refreshStatus();
+
+
+        Runnable drawRunnable = new Runnable() {
+            public void run() {
+                refreshStatus();
+            }
+        };
+
+        ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
+        exec.scheduleAtFixedRate(drawRunnable , 0, 2, TimeUnit.MINUTES);
 
         data = fill_with_data();
         mAdapter = new CustomAdapter(getActivity(),data);
@@ -127,6 +139,13 @@ public class StoryFragment extends Fragment {
 
         // Lookup the swipe container view
         swipeContainer = rootView.findViewById(swipeContainerLayout);
+
+        swipeContainer.post(new Runnable() {
+            @Override public void run() {
+                swipeContainer.setRefreshing(true);
+            }
+        });
+        swipeContainer.setRefreshing(true);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

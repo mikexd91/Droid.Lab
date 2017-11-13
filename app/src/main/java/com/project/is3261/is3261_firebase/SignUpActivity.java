@@ -218,7 +218,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
             mProgressView.setVisibility(View.VISIBLE);
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
@@ -227,8 +227,9 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
                             if (!task.isSuccessful()) {
-                                Toast.makeText(SignUpActivity.this, R.string.auth_failed,
+                                Toast.makeText(SignUpActivity.this, R.string.auth_failed + " "+ task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
+                                Log.d("FirebaseAuth", "onComplete" + task.getException().getMessage());
                                 mProgressView.setVisibility(View.GONE);
                             }else{
                                 //save credentials
