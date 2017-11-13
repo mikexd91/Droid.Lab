@@ -90,6 +90,14 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
                 attemptLogin();
             }
         });
+
+        Button mEmailSignUpButton = (Button) findViewById(R.id.buttonSignup);
+        mEmailSignUpButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClick_SignUp();
+            }
+        });
         mProgressView = findViewById(R.id.login_progress);
         mProgressView.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
@@ -111,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
 
     }
 
-    public void onClick_SignUp(View view){
+    public void onClick_SignUp(){
         Intent myIntent = new Intent(this, SignUpActivity.class);
         startActivity(myIntent);
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);

@@ -98,11 +98,11 @@
                 android:text="Sign In"
                 android:textColor="@android:color/white" />
 
-            <TextView
-                android:id="@+id/textViewSignin"
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/buttonSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onClick_SignUp"
                 android:text="New User? Register here!"
                 android:textAlignment="center" />
 

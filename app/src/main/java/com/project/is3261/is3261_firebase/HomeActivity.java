@@ -1,6 +1,7 @@
 package com.project.is3261.is3261_firebase;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -23,6 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import layout.Activity.LessonFragment;
 import layout.Activity.NewsFragment;
 import layout.Activity.QuizFragment;
+import layout.Activity.StoryFragment;
+
+import static com.project.is3261.is3261_firebase.SignUpActivity.MY_SHAREDPREF_NAME1;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,6 +80,10 @@ public class HomeActivity extends AppCompatActivity
                     myRef.child("userPhoto").setValue(user.getPhotoUrl());
                     if(nameView.getText().toString()==""){
                         nameView.setText(user.getDisplayName());
+                        SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
+                        editor.putString("name",user.getDisplayName());
+                        editor.commit();
+
                     }
 
                 }
@@ -120,6 +128,7 @@ public class HomeActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -146,7 +155,12 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_news) {
+        if (id == R.id.nav_forum) {
+            StoryFragment storyFragment = new StoryFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, storyFragment);
+            ft.commit();
+        } else if (id == R.id.nav_news) {
             // Handle the camera action
             NewsFragment newsFragment = new NewsFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -162,7 +176,7 @@ public class HomeActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, quizFragment);
             ft.commit();
-        }  else if (id == R.id.nav_signout) {
+        }   else if (id == R.id.nav_signout) {
             FirebaseAuth.getInstance().signOut();
         }
 

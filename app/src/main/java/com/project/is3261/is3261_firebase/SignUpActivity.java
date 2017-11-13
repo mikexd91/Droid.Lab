@@ -90,6 +90,14 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
                 attemptLogin();
             }
         });
+
+        Button mEmailSignInButton2 = (Button) findViewById(R.id.buttonSignin2);
+        mEmailSignInButton2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClick_SignIn();
+            }
+        });
         mProgressView = findViewById(R.id.login_progress);
         mProgressView.setVisibility(View.GONE);
 
@@ -111,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
 
     }
 
-    public void onClick_SignIn(View view){
+    public void onClick_SignIn(){
         Intent myIntent = new Intent(this, MainActivity.class);
         startActivity(myIntent);
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
@@ -236,7 +244,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
 
                                     database = FirebaseDatabase.getInstance();
                                     myRef = database.getReference().child("users").child(user.getUid());
-                                    myRef.child("userName").setValue(name);
+                                    myRef.child("name").setValue(name);
                                     myRef.child("userId").setValue(user.getUid());
                                     myRef.child("userEmail").setValue(email);
 
@@ -248,8 +256,8 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
 //                                    String email = user.getEmail();
 //                                    Uri photoUrl = user.getPhotoUrl();
 
-                                    Toast.makeText(SignUpActivity.this, name,
-                                            Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(SignUpActivity.this, name,
+//                                            Toast.LENGTH_SHORT).show();
                                     // The user's ID, unique to the Firebase project. Do NOT use this value to
                                     // authenticate with your backend server, if you have one. Use
                                     // FirebaseUser.getToken() instead.

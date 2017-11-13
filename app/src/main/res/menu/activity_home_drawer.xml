@@ -14,6 +14,10 @@
             android:id="@+id/nav_quiz"
             android:icon="@drawable/icons_quiz"
             android:title="Quiz" />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/icon_forum"
+            android:title="Feeds" />
     </group>
 
     <item android:title="Profile">

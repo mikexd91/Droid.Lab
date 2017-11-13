@@ -1,13 +1,12 @@
-package com.project.is3261.is3261_firebase.Model.News;
+package com.project.is3261.is3261_firebase.Model.Status;
 
-import android.content.Context;
 import android.widget.ImageView;
 
 /**
  * Created by xunda on 6/10/17.
  */
 
-public class Data {
+public class Status {
     public String author;
     public String title;
     public String description;
@@ -15,26 +14,22 @@ public class Data {
     public ImageView urlImageView;
     public String urlToImage;
     public String publishedAt;
+    public String time;
+    public String timePosted;
     public int imageId;
 
-    public Data(String title, String description, String urlToImage) {
-        this.title = title;
-        this.description = description;
-        this.urlToImage = urlToImage;
-    }
 
-    public Data(String status, String author) {
+    public Status(String status, String author, String time, String timePosted) {
         this.description = status;
         this.author = author;
+        this.time = time;
+        this.timePosted = timePosted;
     }
 
-    public Data(Context context, String author, String title, String description, String url, String urlToImage, String publishedAt) {
-        this.author = author;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-        this.urlToImage = urlToImage;
-        this.publishedAt = publishedAt;
+    public String getTimePosted(){ return timePosted;}
+
+    public String getTime() {
+        return time;
     }
 
     public String getAuthor() {

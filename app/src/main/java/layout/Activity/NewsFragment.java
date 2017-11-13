@@ -101,8 +101,8 @@ public class NewsFragment extends Fragment {
             public void onClick(View view, int position) {
                 List<Data> list = mAdapter.getList();
                 Data data = list.get(position);
-                Toast.makeText(getActivity(), data.title.toString(),
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), data.title.toString(),
+//                        Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(getActivity(), WebViewActivity.class);
                 i.putExtra("url", data.getUrl().toString());
