@@ -18,8 +18,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import layout.Activity.LessonFragment;
 import layout.Activity.NewsFragment;
@@ -73,18 +76,27 @@ public class HomeActivity extends AppCompatActivity
                 }else{
                     // Write a message to the database
                     database = FirebaseDatabase.getInstance();
-                    myRef = database.getReference().child("users").child(user.getUid());
-                    myRef.child("userName").setValue(user.getDisplayName());
-                    myRef.child("userId").setValue(user.getUid());
-                    myRef.child("userEmail").setValue(user.getEmail());
-                    myRef.child("userPhoto").setValue(user.getPhotoUrl());
-                    if(nameView.getText().toString()==""){
-                        nameView.setText(user.getDisplayName());
-                        SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
-                        editor.putString("name",user.getDisplayName());
-                        editor.commit();
+                    myRef = database.getReference().child("users").child(user.getUid()).child("name");
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+//                            if(nameView.getText().toString().isEmpty()){
+//                                Toast.makeText(getApplicationContext(),"email "+ dataSnapshot.getValue().toString(),Toast.LENGTH_SHORT).show();
+                                nameView.setText(dataSnapshot.getValue().toString());
+                                SharedPreferences.Editor editor = getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE).edit();
+                                editor.putString("name",dataSnapshot.getValue().toString());
+                                editor.commit();
 
-                    }
+//                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
 
                 }
             }

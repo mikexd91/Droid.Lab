@@ -29,8 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.is3261.is3261_firebase.HomeActivity;
 import com.project.is3261.is3261_firebase.Model.Status.CustomAdapter;
-import com.project.is3261.is3261_firebase.Model.Status.CustomRVItemTouchListener;
-import com.project.is3261.is3261_firebase.Model.Status.RecyclerViewItemClickListener;
 import com.project.is3261.is3261_firebase.Model.Status.Status;
 import com.project.is3261.is3261_firebase.R;
 
@@ -39,6 +37,7 @@ import org.ocpsoft.prettytime.PrettyTime;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -116,20 +115,20 @@ public class StoryFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         // Set CustomAdapter as the adapter for RecyclerView.
 
-        mRecyclerView.addOnItemTouchListener(new CustomRVItemTouchListener(getActivity(), mRecyclerView, new RecyclerViewItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-//                List<Status> list = mAdapter.getList();
-//                Status data = list.get(position);
-//                Toast.makeText(getActivity(), data.title.toString(),
-//                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
+//        mRecyclerView.addOnItemTouchListener(new CustomRVItemTouchListener(getActivity(), mRecyclerView, new RecyclerViewItemClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+////                List<Status> list = mAdapter.getList();
+////                Status data = list.get(position);
+////                Toast.makeText(getActivity(), data.title.toString(),
+////                        Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onLongClick(View view, int position) {
+//
+//            }
+//        }));
 
         RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
         itemAnimator.setAddDuration(1000);
@@ -213,6 +212,11 @@ public class StoryFragment extends Fragment {
             SharedPreferences prefs = getActivity().getSharedPreferences(MY_SHAREDPREF_NAME1,MODE_PRIVATE);
             String name = prefs.getString("name", "user");
             myRef.child(uniqueID).child("authorText").setValue(name);
+            myRef.child(uniqueID).child("like").setValue("0");
+            myRef.child(uniqueID).child("commentNum").setValue("0");
+            String[] names = {""};
+            List nameList = new ArrayList<String>(Arrays.asList(names));
+            myRef.child(uniqueID).child("likeUsers").setValue(nameList);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             String time = sdf.format(Calendar.getInstance().getTime());
@@ -226,6 +230,7 @@ public class StoryFragment extends Fragment {
 
     public void refreshStatus(){
         database = FirebaseDatabase.getInstance();
+
         myRef = database.getReference()
                 .child("users")
                 .child("status");
@@ -243,6 +248,10 @@ public class StoryFragment extends Fragment {
                         String authorText = snapshot.child("authorText").getValue().toString();
                         String statusText = snapshot.child("statusText").getValue().toString();
                         String timePosted = snapshot.child("timeText").getValue().toString();
+                        final List nameList = (List) snapshot.child("likeUsers").getValue();
+                        int like = Integer.valueOf(snapshot.child("like").getValue().toString());
+                        int comment = ((int) snapshot.child("comments").getChildrenCount());
+                        String uid = snapshot.getKey().toString();
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         Date date = new Date();
@@ -260,7 +269,7 @@ public class StoryFragment extends Fragment {
 
                         String ago = prettyTime.format(calendar.getTime());
 
-                        Status dataItem = new Status(statusText,authorText,ago,timePosted);
+                        Status dataItem = new Status(statusText,authorText,ago,timePosted,uid,like,comment,nameList);
                         data.add(dataItem);
                         mAdapter.notifyDataSetChanged();
 
